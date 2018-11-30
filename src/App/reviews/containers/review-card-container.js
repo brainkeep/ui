@@ -1,7 +1,7 @@
-import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import * as inReviewProblemsActions from '../actions/in-review-problems-actions'
 import * as reviewQueueActions from '../actions/review-queue-actions'
+import * as reviewCompletionActions from '../actions/review-completion-actions'
 import { withStyles } from '@material-ui/core/styles';
 import ReviewCard from '../components/review-card-component'
 
@@ -10,7 +10,7 @@ const styles = {
     flexGrow: 1,
   },
   card: {
-    background: 'linear-gradient(45deg, #80ffe5 30%, #00ffcc 90%)',
+    background: 'linear-gradient(45deg, #f2f2f2 30%, #808080 90%)',
     maxWidth: 300
   },
   bullet: {
@@ -35,10 +35,11 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({
-    fetchInReviewProblems: () => inReviewProblemsActions.fetchInReviewProblems,
-    reviewQueueActions: () => reviewQueueActions.fetchReviewQueue
-  }, dispatch)
+  return {
+    fetchInReviewProblems: () => dispatch(inReviewProblemsActions.fetchInReviewProblems),
+    reviewQueueActions: () => dispatch(reviewQueueActions.fetchReviewQueue),
+    completeReview: (data) => dispatch(reviewCompletionActions.completeReview(data))   
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(ReviewCard))

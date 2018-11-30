@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const host = "http://68.47.38.242:8080"
+const host = "http://10.0.0.252:8080"
 const path = "brainkeeper/problem/queued/true/all"
 const param = "coder_id=1"
 
