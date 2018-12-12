@@ -1,9 +1,10 @@
 import { connect } from 'react-redux'
+import { withStyles } from '@material-ui/core/styles';
+import ReviewCard from '../components/review-card-component'
+
 import * as inReviewProblemsActions from '../actions/in-review-problems-actions'
 import * as reviewQueueActions from '../actions/review-queue-actions'
 import * as reviewCompletionActions from '../actions/review-completion-actions'
-import { withStyles } from '@material-ui/core/styles';
-import ReviewCard from '../components/review-card-component'
 
 const styles = {
   root: {
@@ -37,7 +38,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchInReviewProblems: () => dispatch(inReviewProblemsActions.fetchInReviewProblems),
-    reviewQueueActions: () => dispatch(reviewQueueActions.fetchReviewQueue),
+    fetchReviewQueue: () => dispatch(reviewQueueActions.fetchReviewQueue),
     completeReview: (data) => dispatch(reviewCompletionActions.completeReview(data))   
   }
 }

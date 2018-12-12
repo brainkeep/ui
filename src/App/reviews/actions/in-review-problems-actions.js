@@ -1,14 +1,14 @@
 import axios from "axios"
-
-const host = "http://10.0.0.252:8080"
-const path = "brainkeeper/problem/queued/true/all"
-const param = "coder_id=1"
+import * as actionTypes from '../util/action-types'
+import * as host from '../util/host-info'
+import * as path from '../util/resource-path'
 
 export const fetchInReviewProblems = dispatch => {
-    dispatch({type: "FETCH_IN_REVIEW_PROBLEMS_PENDING"})
-    axios.get(host + "/" + path + "?" + param)
+    const url = "http://" + host.IP_ADDRESS + ":" + host.PORT + "/" + path.FETCH_IN_REVIEW_PROBLEMS_PATH + "?" + "coder_id=1"
+    dispatch({type: actionTypes.FETCH_IN_REVIEW_PROBLEMS_PENDING})
+    axios.get(url)
     .then(response => 
-        dispatch({type: "FETCH_IN_REVIEW_PROBLEMS_FULFILLED", payload: response.data})) 
+        dispatch({type: actionTypes.FETCH_IN_REVIEW_PROBLEMS_FULFILLED, payload: response.data})) 
     .catch(err => 
-        dispatch({type: "FETCH_IN_REVIEW_PROBLEMS_REJECTED", payload: err}))
+        dispatch({type: actionTypes.FETCH_IN_REVIEW_PROBLEMS_REJECTED, payload: err}))
 }

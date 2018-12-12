@@ -11,7 +11,7 @@ class ReviewCard extends React.Component {
 
   componentWillMount () {
     this.props.fetchInReviewProblems()
-    this.props.reviewQueueActions()
+    this.props.fetchReviewQueue()
   }
   
   renderReviewCards() {

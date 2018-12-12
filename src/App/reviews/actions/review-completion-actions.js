@@ -1,19 +1,18 @@
 import axios from "axios"
-
-const host = "http://10.0.0.252:8080"
+import * as actionTypes from '../util/action-types'
+import * as host from '../util/host-info'
+import * as path from '../util/resource-path'
 
 export const completeReview = data => dispatch => {
-    dispatch({type: "UPDATE_REVIEW_QUEUE_PENDING"})    
-    axios.put(host + "/brainkeeper/review/queue/one?review_id=" + data.review_id)
-    .then(response => 
-        dispatch({type: "UPDATE_REVIEW_QUEUE_FULFILLED", payload: response.data})) 
-    .catch(err => 
-        dispatch({type: "UPDATE_REVIEW_QUEUE_REJECTED", payload: err}))
+    const url1 = "http://" + host.IP_ADDRESS + ":" + host.PORT + "/" + path.UPDATE_REVIEW_QUEUE_PATH + "?review_id=" + data.review_id
+    dispatch({type: actionTypes.UPDATE_REVIEW_QUEUE_PENDING})    
+    axios.put(url1)
+    .then(response => dispatch({type: actionTypes.UPDATE_REVIEW_QUEUE_FULFILLED, payload: response.data})) 
+    .catch(err => dispatch({type: actionTypes.UPDATE_REVIEW_QUEUE_REJECTED, payload: err}))
 
-    dispatch({type: "UPDATE_IN_REVIEW_PROBLEMS_PENDING"})
-    axios.put(host + "/brainkeeper/problem/review?problem_id=" + data.problem_id)
-    .then(response => 
-        dispatch({type: "UPDATE_IN_REVIEW_PROBLEMS_FULFILLED", payload: response.data})) 
-    .catch(err => 
-        dispatch({type: "UPDATE_IN_REVIEW_PROBLEMS_REJECTED", payload: err}))
+    const url2 = "http://" + host.IP_ADDRESS + ":" + host.PORT + "/" + path.UPDATE_IN_REVIEW_PROBLEMS_PATH + "?problem_id=" + data.problem_id
+    dispatch({type: actionTypes.UPDATE_IN_REVIEW_PROBLEMS_PENDING})
+    axios.put(url2)
+    .then(response => dispatch({type: actionTypes.UPDATE_IN_REVIEW_PROBLEMS_FULFILLED, payload: response.data})) 
+    .catch(err => dispatch({type: actionTypes.UPDATE_IN_REVIEW_PROBLEMS_REJECTED, payload: err}))
 }
