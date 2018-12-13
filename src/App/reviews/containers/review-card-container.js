@@ -11,20 +11,11 @@ const styles = {
     flexGrow: 1,
   },
   card: {
-    background: 'linear-gradient(45deg, #f2f2f2 30%, #808080 90%)',
     maxWidth: 300
-  },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
   },
   title: {
     fontSize: 14,
-  },
-  pos: {
-    marginBottom: 12,
-  },
+  }
 };
 
 
