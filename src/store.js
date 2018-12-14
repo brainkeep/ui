@@ -4,12 +4,10 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import logger from "redux-logger"
 import thunk from "redux-thunk"
 // reducers
-import inReviewProblemsReducer from './reviews/reducers/in-review-problem-reducer'
-import reviewQueue from './reviews/reducers/review-queue-reducer' 
+import ReviewListReducer from './ReviewList/ReviewListReducer'
 
 const reducers = combineReducers({
-    in_review_problems : inReviewProblemsReducer,
-    review_queue : reviewQueue
+    review_list: ReviewListReducer
 })
 
 const middlewares = composeWithDevTools(

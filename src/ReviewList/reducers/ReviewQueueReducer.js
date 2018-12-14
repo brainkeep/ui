@@ -1,4 +1,4 @@
-import * as actionTypes from '../util/action-types'
+import * as ActionTypes from '../util/ActionTypes'
 
 const init = {
     data: [],
@@ -11,36 +11,36 @@ const init = {
 
 const reviewQueue = (reviewQueue = init, action) => {
     switch (action.type) {
-        case actionTypes.FETCH_REVIEW_QUEUE_PENDING:
+        case ActionTypes.FETCH_REVIEW_QUEUE_PENDING:
             return {
                 ...reviewQueue, 
                 fetching: true
             }
-        case actionTypes.FETCH_REVIEW_QUEUE_REJECTED:
+        case ActionTypes.FETCH_REVIEW_QUEUE_REJECTED:
             return {
                 ...reviewQueue, 
                 fetching: false, 
                 error: action.payload
             }
-        case actionTypes.FETCH_REVIEW_QUEUE_FULFILLED:
+        case ActionTypes.FETCH_REVIEW_QUEUE_FULFILLED:
             return {
                 ...reviewQueue, 
                 fetching: false, 
                 fetched: true, 
                 data: action.payload
             }
-        case actionTypes.UPDATE_REVIEW_QUEUE_PENDING:
+        case ActionTypes.UPDATE_REVIEW_QUEUE_PENDING:
             return {
                 ...reviewQueue, 
                 updating: true
             }
-        case actionTypes.UPDATE_REVIEW_QUEUE_REJECTED:
+        case ActionTypes.UPDATE_REVIEW_QUEUE_REJECTED:
             return {
                 ...reviewQueue, 
                 updating: false,
                 error: action.payload,
             }
-        case actionTypes.UPDATE_REVIEW_QUEUE_FULFILLED:
+        case ActionTypes.UPDATE_REVIEW_QUEUE_FULFILLED:
             return {
                 ...reviewQueue, 
                 updating: false,

@@ -1,4 +1,4 @@
-import * as actionTypes from '../util/action-types'
+import * as ActionTypes from '../util/ActionTypes'
 
 const init = {
     data: [],
@@ -11,36 +11,36 @@ const init = {
 
 const inReviewProblems = (inReviewProblems = init, action) => {
     switch (action.type) {
-        case actionTypes.FETCH_IN_REVIEW_PROBLEMS_PENDING:
+        case ActionTypes.FETCH_IN_REVIEW_PROBLEMS_PENDING:
             return {
                 ...inReviewProblems, 
                 fetching: true
             }
-        case actionTypes.FETCH_IN_REVIEW_PROBLEMS_REJECTED:
+        case ActionTypes.FETCH_IN_REVIEW_PROBLEMS_REJECTED:
             return {
                 ...inReviewProblems, 
                 fetching: false, 
                 error: action.payload
             }
-        case actionTypes.FETCH_IN_REVIEW_PROBLEMS_FULFILLED:
+        case ActionTypes.FETCH_IN_REVIEW_PROBLEMS_FULFILLED:
             return {
                 ...inReviewProblems, 
                 fetching: false, 
                 fetched: true, 
                 data: action.payload
             }
-        case actionTypes.UPDATE_IN_REVIEW_PROBLEMS_PENDING:
+        case ActionTypes.UPDATE_IN_REVIEW_PROBLEMS_PENDING:
             return {
                 ...inReviewProblems, 
                 updating: true
             }
-        case actionTypes.UPDATE_IN_REVIEW_PROBLEMS_REJECTED:
+        case ActionTypes.UPDATE_IN_REVIEW_PROBLEMS_REJECTED:
             return {
                 ...inReviewProblems, 
                 updating: false,
                 error: action.payload
             }
-        case actionTypes.UPDATE_IN_REVIEW_PROBLEMS_FULFILLED:
+        case ActionTypes.UPDATE_IN_REVIEW_PROBLEMS_FULFILLED:
             return {
                 ...inReviewProblems, 
                 updating: false,
