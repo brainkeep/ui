@@ -1,7 +1,6 @@
 import React from 'react'
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 
 class CoderComponent extends React.Component {
@@ -16,24 +15,22 @@ class CoderComponent extends React.Component {
     
     render() {
         return (
-            <List>
-                <ListItem>
-                    <TextField
-                        id="standard-password-input"
-                        label="Enter Your Pass Code"
-                        type="password"
-                        autoComplete="current-password"
-                        onChange={this.handleChangeAccessToken()}
-                        fullWidth={true}
-                    />
-                    <Button 
-                        color="secondary"
-                        onClick={this.handleLoginButtonClicked()}
-                    >
-                    Login
-                    </Button>
-                </ListItem>
-            </List>
+            <ListItem>
+                <TextField
+                    id="standard-password-input"
+                    label="Enter Your Pass Code"
+                    type="password"
+                    autoComplete="current-password"
+                    onChange={this.handleChangeAccessToken()}
+                    fullWidth={true}
+                />
+                <Button 
+                    color="secondary"
+                    onClick={this.handleLoginButtonClicked()}
+                >
+                Login
+                </Button>
+            </ListItem>
         )
     }
 }
