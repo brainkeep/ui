@@ -1,23 +1,3 @@
-# Brain Keeper UI
-
-## Project Structures
-
-Since creation of this project, though its functionalities hasn't been growing as fast as I wanted it to be. It has however gone though **several** remodels/resturctures. The main reason for this was my desire of trying to find a good project structure/model/style that I would totally agree with and get exited about. 
-
-Some things that I've come across includes Redux Doc, React Doc, some Medium posts, and Airbnb's style guide. Non of them was perfect in my opinion. So I came up with my own.
-
-### Break the App Apart
-
-- Your app is a website, it will be rendered on a piece of screen. 
-- Your app has multiple sections, each section provides some functionalities differ from other sections.
-- So your app, in a sense, is a combination of multiple small apps, connected together.
-
-I'm hungre, writing is to be continued...
-
-
-
-
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

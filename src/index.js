@@ -5,12 +5,14 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 
 import store from './store'
 import ReviewList from './ReviewList/ReviewList'
+import Coder from './Coder/Coder'
 
 render (
   <Provider store={store}>
       <React.Fragment>
       <CssBaseline />
 
+      <Coder />
       <ReviewList />
       
     </React.Fragment>

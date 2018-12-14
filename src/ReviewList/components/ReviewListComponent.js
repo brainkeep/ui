@@ -4,6 +4,9 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
 
 class ReviewListComponent extends React.Component {
 
@@ -28,8 +31,8 @@ class ReviewListComponent extends React.Component {
       return (
         <div key={data.problem_id}>
           <ListItem button >
-            <a href={data.problem_url}>Link</a>
             <ListItemText primary={data.problem_name} />
+            <Button variant="contained" color="secondary" href={data.problem_url}>Do</Button>
             <Button variant="contained" color="secondary" onClick={() => this.props.completeReview(data)}>Done</Button>
           </ListItem>
           <Divider />
@@ -41,7 +44,14 @@ class ReviewListComponent extends React.Component {
   render() {
     return (
       <List>
-      {this.renderListItems()}
+        <AppBar position="static" color="secondary">
+          <Toolbar>
+            <Typography variant="h6" color="inherit">
+              Review Problems
+            </Typography>
+          </Toolbar>
+        </AppBar>
+        {this.renderListItems()}
       </List>
     )
   }

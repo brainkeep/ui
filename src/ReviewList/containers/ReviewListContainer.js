@@ -13,8 +13,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchInReviewProblems: () => dispatch(ReviewActions.fetchInReviewProblems),
-    fetchReviewQueue: () => dispatch(ReviewActions.fetchReviewQueue),
+    fetchInReviewProblems: (coder_id) => dispatch(ReviewActions.fetchInReviewProblems(coder_id)),
+    fetchReviewQueue: (coder_id) => dispatch(ReviewActions.fetchReviewQueue(coder_id)),
     completeReview: (data) => dispatch(ReviewActions.completeReview(data))   
   }
 }

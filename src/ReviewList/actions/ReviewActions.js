@@ -1,15 +1,15 @@
 import axios from "axios"
-import * as ActionTypes from '../util/ActionTypes'
-import * as HostInfo from '../util/HostInfo'
-import * as ResourcePaths from '../util/ResourcePaths'
+import * as ActionTypes from '../../Util/ActionTypes'
+import * as HostInfo from '../../Util/HostInfo'
+import * as ResourcePaths from '../../Util/ResourcePaths'
 
-export const fetchInReviewProblems = dispatch => {
+export const fetchInReviewProblems = (coder_id = -1) => dispatch => {
   dispatch({type: ActionTypes.FETCH_IN_REVIEW_PROBLEMS_PENDING})
   axios({
       method: 'get',
       url: HostInfo.BASE_URL + ResourcePaths.FETCH_IN_REVIEW_PROBLEMS_PATH,
       params: {
-          coder_id: 1
+          coder_id: coder_id
       },
       responseType: 'json',
       timeout: 10000
@@ -46,13 +46,13 @@ export const completeReview = data => dispatch => {
   .catch(err => dispatch({type: ActionTypes.UPDATE_IN_REVIEW_PROBLEMS_REJECTED, payload: err}))
 }
 
-export const fetchReviewQueue = dispatch => {
+export const fetchReviewQueue = (coder_id = -1) => dispatch => {
   dispatch({type: ActionTypes.FETCH_REVIEW_QUEUE_PENDING})
   axios({
       method: 'get',
       url: HostInfo.BASE_URL + ResourcePaths.FETCH_REVIEW_QUEUE_PATH,
       params: {
-          coder_id: 1
+          coder_id: coder_id
       },
       responseType: 'json',
       timeout: 10000
