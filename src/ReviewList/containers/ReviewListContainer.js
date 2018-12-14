@@ -7,7 +7,8 @@ import * as ReviewActions from '../actions/ReviewActions'
 const mapStateToProps = (state) => {
   return {
     in_review_problems: state.review_list.in_review_problems,
-    review_queue: state.review_list.review_queue
+    review_queue: state.review_list.review_queue,
+    coder_info: state.coder.coder_info
   }
 }
 
@@ -19,6 +20,10 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-const styles = {};
+const styles = {
+  button: {
+    margin: 10,
+  }
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(ReviewListComponent))

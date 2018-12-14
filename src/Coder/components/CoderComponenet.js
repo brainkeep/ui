@@ -24,7 +24,7 @@ class CoderComponent extends React.Component {
                         type="password"
                         autoComplete="current-password"
                         onChange={this.handleChangeAccessToken()}
-                        fullWidth="true"
+                        fullWidth={true}
                     />
                     <Button 
                         color="secondary"
