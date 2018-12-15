@@ -1,7 +1,7 @@
 import axios from "axios"
-import * as ActionTypes from '../../Util/ActionTypes'
-import * as HostInfo from '../../Util/HostInfo'
-import * as ResourcePaths from '../../Util/ResourcePaths'
+import * as ActionTypes from '../util/ActionTypes'
+import * as HostInfo from '../util/HostInfo'
+import * as ResourcePaths from '../util/ResourcePaths'
 
 export const changeCoderAccessToken = access_token => dispatch => {
     dispatch({type: ActionTypes.CHANGE_CODER_ACCESS_TOKEN, payload: access_token})

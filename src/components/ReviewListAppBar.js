@@ -10,7 +10,7 @@ class ReviewListAppBar extends React.Component {
             <AppBar position="static" color="secondary">
                 <Toolbar>
                 <Typography variant="h6" color="inherit">
-                    Review
+                Review
                 </Typography>
                 </Toolbar>
             </AppBar>
