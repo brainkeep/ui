@@ -11,13 +11,14 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 
 // Components  
-import ReviewListAppBar from '../components/ReviewListAppBar'
+
 
 // ActionCreators
 import * as ReviewActions from '../actions/ReviewActions'
 
 // Containers
 import Login from './Login'
+import ReviewListAppBar from './ReviewListAppBar'
 
 class ReviewList extends React.Component {
 
@@ -83,7 +84,6 @@ class ReviewList extends React.Component {
         if (inReview.length === 0 || reviewQueue.length === 0) {
             return (
                 <List>
-                    <ReviewListAppBar />
                     <Login />
                 </List>
             )
