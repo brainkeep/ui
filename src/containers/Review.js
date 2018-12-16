@@ -4,11 +4,11 @@ import { connect } from 'react-redux';
 
 // Material UI
 import { withStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
+import Button from '@material-ui/core/Button';
 
 // Components  
 
@@ -19,7 +19,6 @@ import * as ReviewActions from '../actions/ReviewActions';
 // Containers
 import Login from './Login';
 import BrainKeeperAppBar from './BrainKeeperAppBar';
-import Stats from './Stats'
 
 /*
 
@@ -67,11 +66,11 @@ class Review extends React.Component {
                     
                         <ListItemText primary={data.problem_name} />
 
-                        <Button 
+                        <Button
+                        className={classes.button} 
                         variant="outlined" 
                         color="secondary" 
-                        className={classes.button} 
-                        href={data.problem_url}
+                        href={data.problem_url}  
                         >
                         Solve
                         </Button>
@@ -80,7 +79,7 @@ class Review extends React.Component {
                         variant="contained" 
                         color="secondary" 
                         className={classes.button} 
-                        onClick={() => this.props.completeReview(data)}
+                        
                         >
                         Done
                         </Button>
@@ -108,7 +107,6 @@ class Review extends React.Component {
                 <List>
                     <BrainKeeperAppBar />
                     {this.renderListItems(dataList)}
-                    <Stats />
                 </List>
             )
         }

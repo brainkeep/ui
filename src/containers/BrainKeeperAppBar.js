@@ -3,10 +3,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 // Material UI
+import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
@@ -14,10 +14,15 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import IconButton from '@material-ui/core/IconButton';
+import AddBox from '@material-ui/icons/AddBox';
 
 // ActionCreators
 import * as AppBarStatusActions from '../actions/AppBarStatusActions';
 import * as NewProblemActions from '../actions/NewProblemActions';
+
+// Containers
+import Stats from './Stats'
 
 /*
 
@@ -54,11 +59,11 @@ class BrainKeeperAppBar extends React.Component {
         } 
     }
 
-    handleClickOpen = () => {
+    handleClickOpenDialog = () => {
         this.props.openDialog();
     };
     
-    handleClose = () => {
+    handleCloseDialog = () => {
         this.props.closeDialog();
     };
 
@@ -66,19 +71,28 @@ class BrainKeeperAppBar extends React.Component {
         const { classes } = this.props;
         return (
             <div className={classes.root}>
-
                 <AppBar position="static" color="secondary">
                     <Toolbar>
                         <Typography variant="title" color="inherit" className={classes.grow}>
                         Brain Keeper
                         </Typography>
-                        <Button color="inherit" onClick={this.handleClickOpen}>╋</Button>
+                        <Stats />
+                        <IconButton 
+                        className={classes.menuButton} 
+                        color="inherit" 
+                        aria-label="Menu" 
+                        onClick={this.handleClickOpenDialog}
+                        >
+                        
+                            <AddBox />
+                        </IconButton>
+                        {/* <Button color="inherit" onClick={this.handleClickOpenDialog}>╋</Button> */}
                     </Toolbar>
                 </AppBar>
 
                 <Dialog
                 open={this.props.appbar_status.dialog_open}
-                onClose={this.handleClose}
+                onClose={this.handleCloseDialog}
                 aria-labelledby="form-dialog-title"
                 >
 
@@ -109,7 +123,7 @@ class BrainKeeperAppBar extends React.Component {
                     </DialogContent>
 
                     <DialogActions>
-                        <Button onClick={this.handleClose} color="secondary">
+                        <Button onClick={this.handleCloseDialog} color="secondary">
                         Cancel
                         </Button>
                         <Button onClick={this.handleSaveButtonClicked()} color="secondary">
