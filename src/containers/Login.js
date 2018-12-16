@@ -5,9 +5,10 @@ import { connect } from 'react-redux'
 // Material UI
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
 import ListItem from '@material-ui/core/ListItem';
-
+import IconButton from '@material-ui/core/IconButton';
+import LockOpen from '@material-ui/icons/LockOpen';
 // ActionCreators
 import * as CoderActions from '../actions/CoderActions'
 
@@ -30,27 +31,34 @@ class Login extends React.Component {
     };
 
     handleLoginButtonClicked = () => event => {
-        this.props.fetchCoder(this.props.coder.access_token)
+        const token = this.props.coder.access_token
+        if (token.length >= 4) {
+            this.props.fetchCoder(this.props.coder.access_token);
+        }
     }
 
     render() {
         return (
-            <ListItem>
-                <TextField
+
+            <Dialog open={true}>
+                <ListItem >
+
+                    <TextField
                     id="standard-password-input"
-                    label="Enter Your Pass Code"
                     type="password"
                     autoComplete="current-password"
                     onChange={this.handleChangeAccessToken()}
-                    fullWidth={true}
-                />
-                <Button 
-                    color="secondary"
-                    onClick={this.handleLoginButtonClicked()}
-                >
-                Login
-                </Button>
-            </ListItem>
+                    />
+
+                    <IconButton 
+                        color="secondary"
+                        onClick={this.handleLoginButtonClicked()}
+                    >
+                    <LockOpen />
+                    </IconButton>
+
+                </ListItem>
+            </Dialog>
         )
     }
 }
@@ -81,6 +89,10 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-const styles = {};
+const styles = {
+    media: {
+        height: 140,
+    },
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(Login))
