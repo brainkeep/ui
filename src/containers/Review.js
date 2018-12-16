@@ -96,9 +96,7 @@ class Review extends React.Component {
         const reviewQueue = this.props.review_queue.data;
         if (inReview.length === 0 || reviewQueue.length === 0) {
             return (
-                <List>
-                    <Login />
-                </List>
+                <Login />
             )
         } 
         else {
