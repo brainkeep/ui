@@ -1,6 +1,6 @@
 // React Redux
-import React from 'react'
-import { connect } from 'react-redux'
+import React from 'react';
+import { connect } from 'react-redux';
 
 // Material UI
 import AppBar from '@material-ui/core/AppBar';
@@ -16,31 +16,50 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
 // ActionCreators
-import * as AppBarStatusActions from '../actions/AppBarStatusActions'
-import * as NewProblemActions from '../actions/NewProblemActions'
+import * as AppBarStatusActions from '../actions/AppBarStatusActions';
+import * as NewProblemActions from '../actions/NewProblemActions';
+
+/*
+
+██████╗ ███████╗ █████╗  ██████╗████████╗
+██╔══██╗██╔════╝██╔══██╗██╔════╝╚══██╔══╝
+██████╔╝█████╗  ███████║██║        ██║   
+██╔══██╗██╔══╝  ██╔══██║██║        ██║   
+██║  ██║███████╗██║  ██║╚██████╗   ██║   
+╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝ ╚═════╝   ╚═╝   
+                                                            
+*/
+
 
 class ReviewListAppBar extends React.Component {
 
     handleChangeProblemName = () => event => {
-        this.props.changeNewProblemName(event.target.value)
+        this.props.changeNewProblemName(event.target.value);
     }
 
     handleChangeProblemUrl = () => event => {
-        this.props.changeNewProblemUrl(event.target.value)
+        this.props.changeNewProblemUrl(event.target.value);
     }
 
     handleSaveButtonClicked = () => event => {
-        this.props.saveNewProblem(this.props.coder_id, 
-            this.props.new_problem.problem_name, 
-            this.props.new_problem.problem_url)
+        const coder_id = this.props.coder_id;
+        const problem_name = this.props.new_problem.problem_name;
+        const problem_url = this.props.new_problem.problem_url;
+        const shouldSaveNewProblem = coder_id !== -1 && 
+                                    problem_name.length > 0 && 
+                                    problem_url.length > 10;
+
+        if (shouldSaveNewProblem) {
+            this.props.saveNewProblem(coder_id, problem_name, problem_url);
+        } 
     }
 
     handleClickOpen = () => {
-        this.props.openDialog()
+        this.props.openDialog();
     };
     
     handleClose = () => {
-        this.props.closeDialog()
+        this.props.closeDialog();
     };
 
     render() {
@@ -104,6 +123,18 @@ class ReviewListAppBar extends React.Component {
     }
 }
 
+/*
+
+██████╗ ███████╗██████╗ ██╗   ██╗██╗  ██╗
+██╔══██╗██╔════╝██╔══██╗██║   ██║╚██╗██╔╝
+██████╔╝█████╗  ██║  ██║██║   ██║ ╚███╔╝ 
+██╔══██╗██╔══╝  ██║  ██║██║   ██║ ██╔██╗ 
+██║  ██║███████╗██████╔╝╚██████╔╝██╔╝ ██╗
+╚═╝  ╚═╝╚══════╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝
+                                         
+
+*/
+
 const mapStateToProps = (state) => {
     return {
         appbar_status: state.appbar_status,
@@ -135,4 +166,4 @@ const styles = {
     },
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(ReviewListAppBar))
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(ReviewListAppBar));

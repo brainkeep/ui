@@ -11,6 +11,18 @@ import ListItem from '@material-ui/core/ListItem';
 // ActionCreators
 import * as CoderActions from '../actions/CoderActions'
 
+/*
+
+██████╗ ███████╗ █████╗  ██████╗████████╗
+██╔══██╗██╔════╝██╔══██╗██╔════╝╚══██╔══╝
+██████╔╝█████╗  ███████║██║        ██║   
+██╔══██╗██╔══╝  ██╔══██║██║        ██║   
+██║  ██║███████╗██║  ██║╚██████╗   ██║   
+╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝ ╚═════╝   ╚═╝   
+                                                            
+*/
+
+
 class Login extends React.Component {
 
     handleChangeAccessToken = () => event => {
@@ -42,6 +54,20 @@ class Login extends React.Component {
         )
     }
 }
+
+/*
+
+██████╗ ███████╗██████╗ ██╗   ██╗██╗  ██╗
+██╔══██╗██╔════╝██╔══██╗██║   ██║╚██╗██╔╝
+██████╔╝█████╗  ██║  ██║██║   ██║ ╚███╔╝ 
+██╔══██╗██╔══╝  ██║  ██║██║   ██║ ██╔██╗ 
+██║  ██║███████╗██████╔╝╚██████╔╝██╔╝ ██╗
+╚═╝  ╚═╝╚══════╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝
+                                         
+
+*/
+
+
 
 const mapStateToProps = (state) => {
     return {

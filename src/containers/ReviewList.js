@@ -1,6 +1,6 @@
 // React Redux
-import React from 'react'
-import { connect } from 'react-redux'
+import React from 'react';
+import { connect } from 'react-redux';
 
 // Material UI
 import { withStyles } from '@material-ui/core/styles';
@@ -14,20 +14,33 @@ import Divider from '@material-ui/core/Divider';
 
 
 // ActionCreators
-import * as ReviewActions from '../actions/ReviewActions'
+import * as ReviewActions from '../actions/ReviewActions';
 
 // Containers
-import Login from './Login'
-import ReviewListAppBar from './ReviewListAppBar'
+import Login from './Login';
+import ReviewListAppBar from './ReviewListAppBar';
+
+/*
+
+██████╗ ███████╗ █████╗  ██████╗████████╗
+██╔══██╗██╔════╝██╔══██╗██╔════╝╚══██╔══╝
+██████╔╝█████╗  ███████║██║        ██║   
+██╔══██╗██╔══╝  ██╔══██║██║        ██║   
+██║  ██║███████╗██║  ██║╚██████╗   ██║   
+╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝ ╚═════╝   ╚═╝   
+                                                            
+*/
 
 class ReviewList extends React.Component {
 
     componentDidUpdate () {
-        if (this.props.coder_info.fetched && 
-            !this.props.in_review_problems.fetching && 
-            !this.props.in_review_problems.fetched &&
-            !this.props.review_queue.fetching && 
-            !this.props.review_queue.fetched) {
+        const shouldFetchReviewProblemsFromDB = this.props.coder_info.fetched && 
+                                                !this.props.in_review_problems.fetching && 
+                                                !this.props.in_review_problems.fetched && 
+                                                !this.props.review_queue.fetching && 
+                                                !this.props.review_queue.fetched;
+
+        if (shouldFetchReviewProblemsFromDB) {
             this.props.fetchInReviewProblems(this.props.coder_info.data.coder_id)
             this.props.fetchReviewQueue(this.props.coder_info.data.coder_id)
         }
@@ -99,6 +112,18 @@ class ReviewList extends React.Component {
         }
     }
 }
+
+/*
+
+██████╗ ███████╗██████╗ ██╗   ██╗██╗  ██╗
+██╔══██╗██╔════╝██╔══██╗██║   ██║╚██╗██╔╝
+██████╔╝█████╗  ██║  ██║██║   ██║ ╚███╔╝ 
+██╔══██╗██╔══╝  ██║  ██║██║   ██║ ██╔██╗ 
+██║  ██║███████╗██████╔╝╚██████╔╝██╔╝ ██╗
+╚═╝  ╚═╝╚══════╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝
+                                         
+
+*/
 
 const mapStateToProps = (state) => {
     return {

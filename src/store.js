@@ -13,6 +13,18 @@ import ReviewQueueReducer from './reducers/ReviewQueueReducer'
 import AppBarStatusReducer from './reducers/AppBarStatusReducer'
 import NewProblemReducer from './reducers/NewProblemReducer'
 
+/*
+
+██████╗  █████╗ ████████╗ █████╗     ███████╗████████╗ ██████╗ ██████╗ ███████╗
+██╔══██╗██╔══██╗╚══██╔══╝██╔══██╗    ██╔════╝╚══██╔══╝██╔═══██╗██╔══██╗██╔════╝
+██║  ██║███████║   ██║   ███████║    ███████╗   ██║   ██║   ██║██████╔╝█████╗  
+██║  ██║██╔══██║   ██║   ██╔══██║    ╚════██║   ██║   ██║   ██║██╔══██╗██╔══╝  
+██████╔╝██║  ██║   ██║   ██║  ██║    ███████║   ██║   ╚██████╔╝██║  ██║███████╗
+╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝    ╚══════╝   ╚═╝    ╚═════╝ ╚═╝  ╚═╝╚══════╝
+                                                                               
+                                                 
+*/
+
 const reducers = combineReducers({
     coder_info: CoderInfoReducer,
     in_review_problems: InReviewProblemsReducer,
