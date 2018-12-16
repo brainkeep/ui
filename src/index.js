@@ -10,7 +10,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import store from './store'
 
 // Containers
-import ReviewList from './containers/ReviewList'
+import Review from './containers/Review'
 
 /*
 
@@ -27,7 +27,7 @@ render (
     <Provider store={store}>
         <React.Fragment>
             <CssBaseline />
-            <ReviewList />
+            <Review />
         </React.Fragment>
     </Provider>,
     document.getElementById('root')

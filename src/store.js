@@ -1,17 +1,18 @@
 // Redux
-import { createStore, combineReducers, applyMiddleware } from 'redux'
-import { composeWithDevTools } from 'redux-devtools-extension'
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 // Middlewares
-import logger from "redux-logger"
-import thunk from "redux-thunk"
+import logger from "redux-logger";
+import thunk from "redux-thunk";
 
 // Reducers
-import CoderInfoReducer from './reducers/CoderInfoReducer'
-import InReviewProblemsReducer from './reducers/InReviewProblemsReducer'
-import ReviewQueueReducer from './reducers/ReviewQueueReducer'
-import AppBarStatusReducer from './reducers/AppBarStatusReducer'
-import NewProblemReducer from './reducers/NewProblemReducer'
+import CoderReducer from './reducers/CoderReducer';
+import InReviewProblemsReducer from './reducers/InReviewProblemsReducer';
+import ReviewQueueReducer from './reducers/ReviewQueueReducer';
+import AppBarStatusReducer from './reducers/AppBarStatusReducer';
+import NewProblemReducer from './reducers/NewProblemReducer';
+import ProblemsReducer from './reducers/ProblemsReducer';
 
 /*
 
@@ -21,16 +22,16 @@ import NewProblemReducer from './reducers/NewProblemReducer'
 ██║  ██║██╔══██║   ██║   ██╔══██║    ╚════██║   ██║   ██║   ██║██╔══██╗██╔══╝  
 ██████╔╝██║  ██║   ██║   ██║  ██║    ███████║   ██║   ╚██████╔╝██║  ██║███████╗
 ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝    ╚══════╝   ╚═╝    ╚═════╝ ╚═╝  ╚═╝╚══════╝
-                                                                               
-                                                 
+                                                                                                                     
 */
 
 const reducers = combineReducers({
-    coder_info: CoderInfoReducer,
+    coder: CoderReducer,
     in_review_problems: InReviewProblemsReducer,
     review_queue: ReviewQueueReducer,
     appbar_status: AppBarStatusReducer,
-    new_problem: NewProblemReducer
+    new_problem: NewProblemReducer,
+    problems: ProblemsReducer
 })
 
 const middlewares = composeWithDevTools(

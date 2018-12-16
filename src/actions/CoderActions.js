@@ -7,18 +7,18 @@ export const changeCoderAccessToken = access_token => dispatch => {
     dispatch({type: ActionTypes.CHANGE_CODER_ACCESS_TOKEN, payload: access_token})
 }
 
-export const fetchCoderInfo = access_token => dispatch => {
-    dispatch({type: ActionTypes.FETCH_CODER_INFO_PENDING})
+export const fetchCoder = access_token => dispatch => {
+    dispatch({type: ActionTypes.FETCH_CODER_PENDING})
     axios({
         method: 'get',
-        url: HostInfo.BASE_URL + ResourcePaths.FETCH_CODER_INFO_PATH,
+        url: HostInfo.BASE_URL + ResourcePaths.FETCH_CODER_PATH,
         params: {
             access_token: access_token
         },
         responseType: 'json',
         timeout: 10000
     })
-    .then(response => dispatch({type: ActionTypes.FETCH_CODER_INFO_FULFILLED, payload: response.data}))
-    .catch(err => dispatch({type: ActionTypes.FETCH_CODER_INFO_REJECTED, payload: err}))
+    .then(response => dispatch({type: ActionTypes.FETCH_CODER_FULFILLED, payload: response.data}))
+    .catch(err => dispatch({type: ActionTypes.FETCH_CODER_REJECTED, payload: err}))
 }
 

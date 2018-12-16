@@ -4,12 +4,9 @@ import { connect } from 'react-redux'
 
 // Material UI
 import { withStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import ListItem from '@material-ui/core/ListItem';
 
 // ActionCreators
-import * as CoderActions from '../actions/CoderActions'
+import * as ProblemsActions from '../actions/ProblemsActions'
 
 /*
 
@@ -22,35 +19,20 @@ import * as CoderActions from '../actions/CoderActions'
                                                             
 */
 
+class Stats extends React.Component {
 
-class Login extends React.Component {
-
-    handleChangeAccessToken = () => event => {
-        this.props.changeCoderAccessToken(event.target.value)
-    };
-
-    handleLoginButtonClicked = () => event => {
-        this.props.fetchCoder(this.props.coder.access_token)
+    componentDidMount() {
+        this.props.fetchProblems(this.props.coder_id);
     }
-
+    
     render() {
+        const data = this.props.problems.data;
         return (
-            <ListItem>
-                <TextField
-                    id="standard-password-input"
-                    label="Enter Your Pass Code"
-                    type="password"
-                    autoComplete="current-password"
-                    onChange={this.handleChangeAccessToken()}
-                    fullWidth={true}
-                />
-                <Button 
-                    color="secondary"
-                    onClick={this.handleLoginButtonClicked()}
-                >
-                Login
-                </Button>
-            </ListItem>
+            <div>
+                Number of problems solved: {data.length}
+                <br />
+                Number of reviews completed: {data.map(d => d.times_solved).reduce((a, b) => a + b, 0) - data.length}
+            </div>
         )
     }
 }
@@ -66,21 +48,19 @@ class Login extends React.Component {
                                          
 */
 
-
-
 const mapStateToProps = (state) => {
     return {
-        coder: state.coder
+        problems: state.problems,
+        coder_id: state.coder.data.coder_id
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        changeCoderAccessToken: (text) => dispatch(CoderActions.changeCoderAccessToken(text)),
-        fetchCoder: (access_token) => dispatch(CoderActions.fetchCoder(access_token))
+        fetchProblems: (coder_id) => dispatch(ProblemsActions.fetchProblems(coder_id))
     }
 }
 
 const styles = {};
 
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(Login))
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(Stats))

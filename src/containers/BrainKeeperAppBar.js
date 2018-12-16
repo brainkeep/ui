@@ -31,7 +31,7 @@ import * as NewProblemActions from '../actions/NewProblemActions';
 */
 
 
-class ReviewListAppBar extends React.Component {
+class BrainKeeperAppBar extends React.Component {
 
     handleChangeProblemName = () => event => {
         this.props.changeNewProblemName(event.target.value);
@@ -139,7 +139,7 @@ const mapStateToProps = (state) => {
     return {
         appbar_status: state.appbar_status,
         new_problem: state.new_problem,
-        coder_id: state.coder_info.data.coder_id
+        coder_id: state.coder.data.coder_id
     }
 }
   
@@ -166,4 +166,4 @@ const styles = {
     },
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(ReviewListAppBar));
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(BrainKeeperAppBar));

@@ -18,7 +18,8 @@ import * as ReviewActions from '../actions/ReviewActions';
 
 // Containers
 import Login from './Login';
-import ReviewListAppBar from './ReviewListAppBar';
+import BrainKeeperAppBar from './BrainKeeperAppBar';
+import Stats from './Stats'
 
 /*
 
@@ -31,18 +32,18 @@ import ReviewListAppBar from './ReviewListAppBar';
                                                             
 */
 
-class ReviewList extends React.Component {
+class Review extends React.Component {
 
     componentDidUpdate () {
-        const shouldFetchReviewProblemsFromDB = this.props.coder_info.fetched && 
+        const shouldFetchReviewProblemsFromDB = this.props.coder.fetched && 
                                                 !this.props.in_review_problems.fetching && 
                                                 !this.props.in_review_problems.fetched && 
                                                 !this.props.review_queue.fetching && 
                                                 !this.props.review_queue.fetched;
 
         if (shouldFetchReviewProblemsFromDB) {
-            this.props.fetchInReviewProblems(this.props.coder_info.data.coder_id)
-            this.props.fetchReviewQueue(this.props.coder_info.data.coder_id)
+            this.props.fetchInReviewProblems(this.props.coder.data.coder_id)
+            this.props.fetchReviewQueue(this.props.coder.data.coder_id)
         }
     }
 
@@ -105,8 +106,9 @@ class ReviewList extends React.Component {
             const dataList = this.processData(inReview, reviewQueue)
             return (
                 <List>
-                    <ReviewListAppBar />
+                    <BrainKeeperAppBar />
                     {this.renderListItems(dataList)}
+                    <Stats />
                 </List>
             )
         }
@@ -129,7 +131,7 @@ const mapStateToProps = (state) => {
     return {
         in_review_problems: state.in_review_problems,
         review_queue: state.review_queue,
-        coder_info: state.coder_info
+        coder: state.coder
     }
 }
   
@@ -147,4 +149,4 @@ const styles = {
     }
 };
   
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(ReviewList))
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(Review))
