@@ -1,0 +1,12 @@
+version: '3.0'
+
+services:
+
+  brain_keeper:
+    container_name: brain_keeper
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: brainkeeper/ui
+    ports:
+      - '80:80'
