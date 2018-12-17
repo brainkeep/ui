@@ -37,8 +37,10 @@ class Review extends React.Component {
         const shouldFetchReviewProblemsFromDB = this.props.coder.fetched && 
                                                 !this.props.in_review_problems.fetching && 
                                                 !this.props.in_review_problems.fetched && 
+                                                !this.props.in_review_problems.fetch_error &&
                                                 !this.props.review_queue.fetching && 
-                                                !this.props.review_queue.fetched;
+                                                !this.props.review_queue.fetched &&
+                                                !this.props.review_queue.fetch_error;
 
         if (shouldFetchReviewProblemsFromDB) {
             this.props.fetchInReviewProblems(this.props.coder.data.coder_id)
@@ -46,7 +48,17 @@ class Review extends React.Component {
         }
     }
 
-    processData(inReview, reviewQueue) {
+    handleReviewCompletion = data => () => {
+        const shouldCompleteReview = data.coder_id !== -1 &&
+                                    data.review_id > 0 &&
+                                    data.problem_id > 0;
+                                    
+        if (shouldCompleteReview) {
+            this.props.completeReview(data);
+        }
+    }
+
+    processData = (inReview, reviewQueue) => {
         inReview.sort((a, b) => a.problem_id - b.problem_id);
         reviewQueue.sort((a, b) => a.problem_id - b.problem_id);
         var dataList = [];
@@ -57,7 +69,7 @@ class Review extends React.Component {
         return dataList;
     }
 
-    renderListItems(dataList) {
+    renderListItems = (dataList) => {
         const { classes } = this.props;
         return dataList.map(data => {
             return (
@@ -79,7 +91,7 @@ class Review extends React.Component {
                         variant="contained" 
                         color="secondary" 
                         className={classes.button} 
-                        
+                        onClick={this.handleReviewCompletion(data)}
                         >
                         Done
                         </Button>

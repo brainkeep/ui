@@ -4,8 +4,10 @@ const init = {
     data: [],
     fetching: false,
     fetched: false,
+    fetch_error: false,
     updating: false,
     updated: false,
+    update_error: false,
     error: {}
 }
 
@@ -20,6 +22,7 @@ const reviewQueue = (reviewQueue = init, action) => {
             return {
                 ...reviewQueue, 
                 fetching: false, 
+                fetch_error: true,
                 error: action.payload
             }
         case ActionTypes.FETCH_REVIEW_QUEUE_FULFILLED:
@@ -38,6 +41,7 @@ const reviewQueue = (reviewQueue = init, action) => {
             return {
                 ...reviewQueue, 
                 updating: false,
+                update_error: true,
                 error: action.payload,
             }
         case ActionTypes.UPDATE_REVIEW_QUEUE_FULFILLED:

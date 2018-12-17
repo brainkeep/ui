@@ -30,10 +30,10 @@ class Login extends React.Component {
         this.props.changeCoderAccessToken(event.target.value)
     };
 
-    handleLoginButtonClicked = () => event => {
+    handleLoginButtonClicked = () => () => {
         const token = this.props.coder.access_token
         if (token.length >= 4) {
-            this.props.fetchCoder(this.props.coder.access_token);
+            this.props.fetchCoder(token);
         }
     }
 
@@ -51,8 +51,8 @@ class Login extends React.Component {
                     />
 
                     <IconButton 
-                        color="secondary"
-                        onClick={this.handleLoginButtonClicked()}
+                    color="secondary"
+                    onClick={this.handleLoginButtonClicked()}
                     >
                     <LockOpen />
                     </IconButton>
