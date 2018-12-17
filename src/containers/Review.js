@@ -114,10 +114,12 @@ class Review extends React.Component {
         else {
             const dataList = this.processData(inReview, reviewQueue)
             return (
-                <List>
-                    <BrainKeeperAppBar />
+                <div>
+                <BrainKeeperAppBar />
+                <List>    
                     {this.renderListItems(dataList)}
                 </List>
+                </div>
             )
         }
     }
