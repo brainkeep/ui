@@ -104,9 +104,10 @@ class Review extends React.Component {
     }
 
     render() {
+        const coder = this.props.coder;
         const inReview = this.props.in_review_problems.data;
         const reviewQueue = this.props.review_queue.data;
-        if (inReview.length === 0 || reviewQueue.length === 0) {
+        if (!coder.fetched) {
             return (
                 <Login />
             )
