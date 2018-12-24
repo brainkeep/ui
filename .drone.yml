@@ -1,9 +1,10 @@
 
 pipeline:
                                     
-  docker_build_publish:
+  docker:
     image: plugins/docker
     repo: brainkeeper/ui
     tags: latest
+    secrets: [ docker_username, docker_password ]
     when:
       branch: master
