@@ -1,6 +1,6 @@
 {
-  "short_name": "Brain Keeper",
-  "name": "Brain Keeper UI",
+  "short_name": "codekeep",
+  "name": "codekeep",
   "icons": [
     {
       "src": "favicon.png",

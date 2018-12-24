@@ -36,7 +36,7 @@ import Stats from './Stats'
 */
 
 
-class BrainKeeperAppBar extends React.Component {
+class HeaderAppBar extends React.Component {
 
     handleChangeProblemName = () => event => {
         this.props.changeNewProblemName(event.target.value);
@@ -74,7 +74,7 @@ class BrainKeeperAppBar extends React.Component {
                 <AppBar position="static" color="secondary">
                     <Toolbar>
                         <Typography variant="title" color="inherit" className={classes.grow}>
-                        Brain Keeper
+                        codekeep
                         </Typography>
                         <Stats />
                         <IconButton 
@@ -180,4 +180,4 @@ const styles = {
     },
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(BrainKeeperAppBar));
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(HeaderAppBar));

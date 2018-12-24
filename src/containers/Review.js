@@ -18,7 +18,7 @@ import * as ReviewActions from '../actions/ReviewActions';
 
 // Containers
 import Login from './Login';
-import BrainKeeperAppBar from './BrainKeeperAppBar';
+import HeaderAppBar from './HeaderAppBar';
 
 /*
 
@@ -116,7 +116,7 @@ class Review extends React.Component {
             const dataList = this.processData(inReview, reviewQueue)
             return (
                 <div>
-                <BrainKeeperAppBar />
+                <HeaderAppBar />
                 <List>    
                     {this.renderListItems(dataList)}
                 </List>
