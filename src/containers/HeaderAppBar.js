@@ -74,7 +74,7 @@ class HeaderAppBar extends React.Component {
                 <AppBar position="static" color="secondary">
                     <Toolbar>
                         <Typography variant="title" color="inherit" className={classes.grow}>
-                        codekeep
+                        brainkeep
                         </Typography>
                         <Stats />
                         <IconButton 
