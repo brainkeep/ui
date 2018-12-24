@@ -1,9 +1,7 @@
 // Redux
 import { createStore, combineReducers, applyMiddleware } from 'redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
 
 // Middlewares
-import logger from "redux-logger";
 import thunk from "redux-thunk";
 
 // Reducers
@@ -34,8 +32,6 @@ const reducers = combineReducers({
     problems: ProblemsReducer
 })
 
-const middlewares = composeWithDevTools(
-    applyMiddleware(thunk, logger)
-)
+const middlewares = applyMiddleware(thunk)
 
 export default createStore(reducers, middlewares)

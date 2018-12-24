@@ -74,7 +74,7 @@ class HeaderAppBar extends React.Component {
                 <AppBar position="static" color="secondary">
                     <Toolbar>
                         <Typography variant="title" color="inherit" className={classes.grow}>
-                        codekeep
+                        brainkeep
                         </Typography>
                         <Stats />
                         <IconButton 
@@ -86,7 +86,6 @@ class HeaderAppBar extends React.Component {
                         
                             <AddBox />
                         </IconButton>
-                        {/* <Button color="inherit" onClick={this.handleClickOpenDialog}>╋</Button> */}
                     </Toolbar>
                 </AppBar>
 

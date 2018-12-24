@@ -1,6 +1,6 @@
 {
-  "short_name": "codekeep",
-  "name": "codekeep",
+  "short_name": "brainkeep",
+  "name": "brainkeep ui",
   "icons": [
     {
       "src": "favicon.png",
