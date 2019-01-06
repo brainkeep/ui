@@ -14,7 +14,7 @@ pipeline:
     host: 68.47.38.242
     port: 22
     secrets: [ ssh_username, ssh_password ]
-    target: /home/junpu
+    target: /home/junpu/brainkeep/ui
     source:
       - docker-compose.yml
 
@@ -24,7 +24,7 @@ pipeline:
     port: 22
     secrets: [ ssh_username, ssh_password ]
     script:
-      - /usr/bin/docker-compose -f /home/junpu/docker-compose.yml down
+      - /usr/bin/docker-compose -f /home/junpu/brainkeep/uidocker-compose.yml down
 
   ssh_docker_pull:
     image: appleboy/drone-ssh
@@ -32,7 +32,7 @@ pipeline:
     port: 22
     secrets: [ ssh_username, ssh_password ]
     script:
-      - /usr/bin/docker-compose -f /home/junpu/docker-compose.yml pull
+      - /usr/bin/docker-compose -f /home/junpu/brainkeep/uidocker-compose.yml pull
 
   ssh_docker_up:
     image: appleboy/drone-ssh
@@ -40,7 +40,7 @@ pipeline:
     port: 22
     secrets: [ ssh_username, ssh_password ]
     script:
-      - /usr/bin/docker-compose -f /home/junpu/docker-compose.yml up -d
+      - /usr/bin/docker-compose -f /home/junpu/brainkeep/uidocker-compose.yml up -d
   
   ssh_cleanup:
     image: appleboy/drone-ssh
@@ -48,6 +48,6 @@ pipeline:
     port: 22
     secrets: [ ssh_username, ssh_password ]
     script:
-      - rm /home/junpu/docker-compose.yml
+      - rm /home/junpu/brainkeep/uidocker-compose.yml
 
       
