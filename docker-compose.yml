@@ -1,0 +1,10 @@
+version: '3.0'
+
+services:
+
+  brainkeep_ui:
+    container_name: brainkeep_ui
+    image: brainkeeper/ui
+    restart: always
+    ports:
+      - '80:80'
