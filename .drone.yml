@@ -1,19 +1,13 @@
 
 pipeline:
                                     
-<<<<<<< HEAD
-  docker:
-=======
   docker_build_push:
->>>>>>> master
     image: plugins/docker
     repo: brainkeeper/ui
     tags: latest
     secrets: [ docker_username, docker_password ]
     when:
       branch: master
-<<<<<<< HEAD
-=======
   
   scp_docker_compose:
     image: appleboy/drone-scp
@@ -57,4 +51,3 @@ pipeline:
       - rm /home/junpu/brainkeep/ui/docker-compose.yml
 
       
->>>>>>> master
