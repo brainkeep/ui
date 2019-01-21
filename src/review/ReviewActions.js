@@ -1,7 +1,7 @@
-import axios from "axios"
-import * as ActionTypes from '../util/ActionTypes'
-import * as HostInfo from '../util/HostInfo'
-import * as ResourcePaths from '../util/ResourcePaths'
+import axios from "axios";
+import * as ActionTypes from '../app/ActionTypes';
+import * as HostInfo from '../app/HostInfo';
+import * as ResourcePaths from '../app/ResourcePaths';
 
 export const fetchInReviewProblems = (coder_id = -1) => dispatch => {
     dispatch({type: ActionTypes.FETCH_IN_REVIEW_PROBLEMS_PENDING})

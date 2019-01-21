@@ -1,4 +1,4 @@
-import * as ActionTypes from '../util/ActionTypes'
+import * as ActionTypes from '../app/ActionTypes';
 
 const init = {
     problem_name: "",
@@ -45,4 +45,4 @@ const newProblem = (newProblem = init, action) => {
     }
 }
 
-export default newProblem
+export default newProblem;

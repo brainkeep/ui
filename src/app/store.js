@@ -5,12 +5,14 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from "redux-thunk";
 
 // Reducers
-import CoderReducer from './reducers/CoderReducer';
-import InReviewProblemsReducer from './reducers/InReviewProblemsReducer';
-import ReviewQueueReducer from './reducers/ReviewQueueReducer';
-import AppBarStatusReducer from './reducers/AppBarStatusReducer';
-import NewProblemReducer from './reducers/NewProblemReducer';
-import ProblemsReducer from './reducers/ProblemsReducer';
+import CoderReducer from '../login/CoderReducer';
+
+import AppBarStatusReducer from '../header/AppBarStatusReducer';
+import ProblemsReducer from '../header/ProblemsReducer';
+import NewProblemReducer from '../header/NewProblemReducer';
+
+import InReviewProblemsReducer from '../review/InReviewProblemsReducer';
+import ReviewQueueReducer from '../review/ReviewQueueReducer';
 
 /*
 
@@ -30,8 +32,8 @@ const reducers = combineReducers({
     appbar_status: AppBarStatusReducer,
     new_problem: NewProblemReducer,
     problems: ProblemsReducer
-})
+});
 
 const middlewares = applyMiddleware(thunk)
 
-export default createStore(reducers, middlewares)
+export default createStore(reducers, middlewares);

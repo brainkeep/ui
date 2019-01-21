@@ -18,11 +18,11 @@ import IconButton from '@material-ui/core/IconButton';
 import AddBox from '@material-ui/icons/AddBox';
 
 // ActionCreators
-import * as AppBarStatusActions from '../actions/AppBarStatusActions';
-import * as NewProblemActions from '../actions/NewProblemActions';
+import * as AppBarStatusActions from './AppBarStatusActions';
+import * as NewProblemActions from './NewProblemActions';
 
 // Containers
-import Stats from './Stats'
+import Stats from './Stats';
 
 /*
 
@@ -35,16 +35,15 @@ import Stats from './Stats'
                                                             
 */
 
-
 class HeaderAppBar extends React.Component {
 
     handleChangeProblemName = () => event => {
         this.props.changeNewProblemName(event.target.value);
-    }
+    };
 
     handleChangeProblemUrl = () => event => {
         this.props.changeNewProblemUrl(event.target.value);
-    }
+    };
 
     handleSaveButtonClicked = () => event => {
         const coder_id = this.props.coder_id;
@@ -57,7 +56,7 @@ class HeaderAppBar extends React.Component {
         if (shouldSaveNewProblem) {
             this.props.saveNewProblem(coder_id, problem_name, problem_url);
         } 
-    }
+    };
 
     handleClickOpenDialog = () => {
         this.props.openDialog();
@@ -86,6 +85,7 @@ class HeaderAppBar extends React.Component {
                         
                             <AddBox />
                         </IconButton>
+                        {/* <Button color="inherit" onClick={this.handleClickOpenDialog}>╋</Button> */}
                     </Toolbar>
                 </AppBar>
 

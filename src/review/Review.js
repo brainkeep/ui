@@ -10,15 +10,12 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 import Button from '@material-ui/core/Button';
 
-// Components  
-
-
 // ActionCreators
-import * as ReviewActions from '../actions/ReviewActions';
+import * as ReviewActions from './ReviewActions';
 
 // Containers
-import Login from './Login';
-import HeaderAppBar from './HeaderAppBar';
+import Login from '../login/Login';
+import HeaderAppBar from '../header/HeaderAppBar';
 
 /*
 
@@ -135,7 +132,6 @@ class Review extends React.Component {
 ██║  ██║███████╗██████╔╝╚██████╔╝██╔╝ ██╗
 ╚═╝  ╚═╝╚══════╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝
                                          
-
 */
 
 const mapStateToProps = (state) => {
@@ -150,7 +146,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         fetchInReviewProblems: (coder_id) => dispatch(ReviewActions.fetchInReviewProblems(coder_id)),
         fetchReviewQueue: (coder_id) => dispatch(ReviewActions.fetchReviewQueue(coder_id)),
-        completeReview: (data) => dispatch(ReviewActions.completeReview(data))   
+        completeReview: (data) => dispatch(ReviewActions.completeReview(data)) 
     }
 }
   
@@ -160,4 +156,4 @@ const styles = {
     }
 };
   
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(Review))
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(Review));

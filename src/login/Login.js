@@ -1,6 +1,6 @@
 // React Redux
-import React from 'react'
-import { connect } from 'react-redux'
+import React from 'react';
+import { connect } from 'react-redux';
 
 // Material UI
 import { withStyles } from '@material-ui/core/styles';
@@ -9,8 +9,9 @@ import Dialog from '@material-ui/core/Dialog';
 import ListItem from '@material-ui/core/ListItem';
 import IconButton from '@material-ui/core/IconButton';
 import LockOpen from '@material-ui/icons/LockOpen';
+
 // ActionCreators
-import * as CoderActions from '../actions/CoderActions'
+import * as CoderActions from './CoderActions';
 
 /*
 
@@ -22,7 +23,6 @@ import * as CoderActions from '../actions/CoderActions'
 ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝ ╚═════╝   ╚═╝   
                                                             
 */
-
 
 class Login extends React.Component {
 
@@ -74,8 +74,6 @@ class Login extends React.Component {
                                          
 */
 
-
-
 const mapStateToProps = (state) => {
     return {
         coder: state.coder
@@ -95,4 +93,4 @@ const styles = {
     },
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(Login))
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(Login));

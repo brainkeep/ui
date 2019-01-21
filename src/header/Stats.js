@@ -1,6 +1,6 @@
 // React Redux
-import React from 'react'
-import { connect } from 'react-redux'
+import React from 'react';
+import { connect } from 'react-redux';
 
 // Material UI
 import { withStyles } from '@material-ui/core/styles';
@@ -12,8 +12,9 @@ import IconButton from '@material-ui/core/IconButton';
 import Assessment from '@material-ui/icons/Assessment';
 
 // ActionCreators
-import * as ProblemsActions from '../actions/ProblemsActions'
-import * as AppBarStatusActions from '../actions/AppBarStatusActions'
+import * as ProblemsActions from './ProblemsActions';
+import * as AppBarStatusActions from './AppBarStatusActions';
+
 /*
 
 ██████╗ ███████╗ █████╗  ██████╗████████╗
@@ -122,4 +123,4 @@ const styles = {
     },
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(Stats))
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(Stats));
