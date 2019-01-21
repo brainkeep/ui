@@ -1,4 +1,4 @@
-import * as ActionTypes from '../util/ActionTypes'
+import * as ActionTypes from '../app/ActionTypes';
 
 const init = {
     data: [],
@@ -56,4 +56,4 @@ const inReviewProblems = (inReviewProblems = init, action) => {
     }
 }
 
-export default inReviewProblems
+export default inReviewProblems;

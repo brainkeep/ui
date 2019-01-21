@@ -1,4 +1,4 @@
-import * as ActionTypes from '../util/ActionTypes'
+import * as ActionTypes from '../app/ActionTypes';
 
 const init = {
     data: {},
@@ -38,4 +38,4 @@ const coder = (coder = init, action) => {
     }
 }
 
-export default coder
+export default coder;

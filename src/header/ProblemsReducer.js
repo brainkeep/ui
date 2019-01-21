@@ -1,4 +1,4 @@
-import * as ActionTypes from '../util/ActionTypes'
+import * as ActionTypes from '../app/ActionTypes';
 
 const init = {
     data: [],
@@ -32,4 +32,4 @@ const problems = (problems = init, action) => {
     }
 }
 
-export default problems
+export default problems;

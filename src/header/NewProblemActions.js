@@ -1,7 +1,7 @@
-import axios from "axios"
-import * as ActionTypes from '../util/ActionTypes'
-import * as HostInfo from '../util/HostInfo'
-import * as ResourcePaths from '../util/ResourcePaths'
+import axios from "axios";
+import * as ActionTypes from '../app/ActionTypes';
+import * as HostInfo from '../app/HostInfo';
+import * as ResourcePaths from '../app/ResourcePaths';
 
 export const changeNewProblemName = problem_name => dispatch => {
     dispatch({type: ActionTypes.CHANGE_NEW_PROBLEM_NAME, payload: problem_name})
