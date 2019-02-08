@@ -79,6 +79,7 @@ class Review extends React.Component {
                         className={classes.button} 
                         variant="outlined" 
                         color="secondary" 
+                        target="_blank"
                         href={data.problem_url}  
                         >
                         Solve
