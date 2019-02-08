@@ -2,9 +2,9 @@ version: '3.0'
 
 services:
 
-  leetsspellbook_ui:
-    container_name: leetsspellbook_ui
-    image: leetsspellbook/ui
+  kurumi_ui:
+    container_name: kurumi_ui
+    image: kurumicode/ui
     restart: always
     ports:
       - '80:80'
