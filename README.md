@@ -1,4 +1,4 @@
-[![Build Status](http://68.47.38.242:8000/api/badges/brainkeep/ui/status.svg)](http://68.47.38.242:8000/brainkeep/ui)
+[![Build Status](http://68.47.38.242:8000/api/badges/kurumicode/ui/status.svg)](http://68.47.38.242:8000/kurumicode/ui)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
