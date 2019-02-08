@@ -2,9 +2,9 @@ version: '3.0'
 
 services:
 
-  brainkeep_ui:
-    container_name: brainkeep_ui
-    image: brainkeeper/ui
+  leetsspellbook_ui:
+    container_name: leetsspellbook_ui
+    image: leetsspellbook/ui
     restart: always
     ports:
       - '80:80'
