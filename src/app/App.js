@@ -1,6 +1,5 @@
 // React Redux
 import React from 'react';
-
 // Container
 import Review from '../review/Review';
 
@@ -16,11 +15,11 @@ import Review from '../review/Review';
 */
 
 class App extends React.Component {
-	render() {
-		return (
-			<Review />
-		)
-	}
+  render() {
+    return (
+      <Review/>
+    );
+  }
 }
 
 export default App;

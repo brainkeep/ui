@@ -1,9 +1,7 @@
 // Redux
-import { createStore, combineReducers, applyMiddleware } from 'redux';
-
+import {applyMiddleware, combineReducers, createStore} from 'redux';
 // Middlewares
-import thunk from "redux-thunk";
-
+import thunk from 'redux-thunk';
 // Reducers
 import CoderReducer from '../login/CoderReducer';
 
@@ -26,14 +24,14 @@ import ReviewQueueReducer from '../review/ReviewQueueReducer';
 */
 
 const reducers = combineReducers({
-    coder: CoderReducer,
-    in_review_problems: InReviewProblemsReducer,
-    review_queue: ReviewQueueReducer,
-    appbar_status: AppBarStatusReducer,
-    new_problem: NewProblemReducer,
-    problems: ProblemsReducer
+  coder: CoderReducer,
+  in_review_problems: InReviewProblemsReducer,
+  review_queue: ReviewQueueReducer,
+  appbar_status: AppBarStatusReducer,
+  new_problem: NewProblemReducer,
+  problems: ProblemsReducer,
 });
 
-const middlewares = applyMiddleware(thunk)
+const middlewares = applyMiddleware(thunk);
 
 export default createStore(reducers, middlewares);
