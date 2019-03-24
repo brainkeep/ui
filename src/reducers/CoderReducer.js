@@ -1,4 +1,4 @@
-import * as ActionTypes from '../app/ActionTypes';
+import * as ActionTypes from '../utils/ActionTypes';
 
 const init = {
   data: {},

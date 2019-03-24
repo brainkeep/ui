@@ -16,10 +16,12 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import IconButton from '@material-ui/core/IconButton';
 import AddBox from '@material-ui/icons/AddBox';
 // ActionCreators
-import * as AppBarStatusActions from './AppBarStatusActions';
-import * as NewProblemActions from './NewProblemActions';
+import * as HeaderActions from '../../actions/HeaderActions';
+import * as NewQuestionActions from '../../actions/NewQuestionActions';
 // Containers
-import Stats from './Stats';
+
+
+import './Header.css'
 
 /*
 
@@ -32,26 +34,25 @@ import Stats from './Stats';
                                                             
 */
 
-class HeaderAppBar extends React.Component {
+class Header extends React.Component {
 
-  handleChangeProblemName = () => event => {
-    this.props.changeNewProblemName(event.target.value);
+  handleChangeQuestionName = () => event => {
+    this.props.changeNewQuestionName(event.target.value);
   };
 
-  handleChangeProblemUrl = () => event => {
-    this.props.changeNewProblemUrl(event.target.value);
+  handleChangeQuestionUrl = () => event => {
+    this.props.changeNewQuestionUrl(event.target.value);
   };
 
-  handleSaveButtonClicked = () => event => {
+  handleSaveButtonClicked = () => () => {
     const coder_id = this.props.coder_id;
-    const problem_name = this.props.new_problem.problem_name;
-    const problem_url = this.props.new_problem.problem_url;
-    const shouldSaveNewProblem = coder_id !== -1 &&
-      problem_name.length > 0 &&
-      problem_url.length > 10;
-
-    if (shouldSaveNewProblem) {
-      this.props.saveNewProblem(coder_id, problem_name, problem_url);
+    const question_set_id = this.props.question_set_id;
+    const question_name = this.props.new_question.question_name;
+    const question_url = this.props.new_question.question_url;
+    const shouldSaveNewQuestion = question_name.length > 0 &&
+      question_url.length > 10;
+    if (shouldSaveNewQuestion) {
+      this.props.saveNewQuestion(coder_id, question_name, question_url, question_set_id);
     }
   };
 
@@ -67,33 +68,30 @@ class HeaderAppBar extends React.Component {
     const {classes} = this.props;
     return (
       <div className={classes.root}>
-        <AppBar position="static" color="secondary">
-          <Toolbar>
-            <Typography variant="title" color="inherit"
+        <AppBar position="sticky" color="inherit">
+          <Toolbar className="ToolBar">
+            <Typography variant='display2' color="secondary"
                         className={classes.grow}>
               kurumi
             </Typography>
-            <Stats/>
             <IconButton
               className={classes.menuButton}
-              color="inherit"
+              color="secondary"
               aria-label="Menu"
               onClick={this.handleClickOpenDialog}
             >
-
               <AddBox/>
             </IconButton>
-            {/* <Button color="inherit" onClick={this.handleClickOpenDialog}>╋</Button> */}
           </Toolbar>
         </AppBar>
 
         <Dialog
-          open={this.props.appbar_status.dialog_open}
+          open={this.props.header_status.dialog_open}
           onClose={this.handleCloseDialog}
           aria-labelledby="form-dialog-title"
         >
 
-          <DialogTitle id="form-dialog-title">New Problem</DialogTitle>
+          <DialogTitle id="form-dialog-title">New Question</DialogTitle>
 
           <DialogContent>
 
@@ -105,16 +103,16 @@ class HeaderAppBar extends React.Component {
             <TextField
               autoFocus
               margin="normal"
-              label="Problem Name"
-              onChange={this.handleChangeProblemName()}
+              label="Question Name"
+              onChange={this.handleChangeQuestionName()}
               fullWidth
             />
 
             <TextField
               autoFocus
               margin="normal"
-              label="Problem Url"
-              onChange={this.handleChangeProblemUrl()}
+              label="Question Url"
+              onChange={this.handleChangeQuestionUrl()}
               fullWidth
             />
 
@@ -149,22 +147,23 @@ class HeaderAppBar extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    appbar_status: state.appbar_status,
-    new_problem: state.new_problem,
+    header_status: state.header_status,
+    new_question: state.new_question,
     coder_id: state.coder.data.coder_id,
+    question_set_id: state.coder.data.default_question_set_id
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    openDialog: () => dispatch(AppBarStatusActions.openAppBarDialog()),
-    closeDialog: () => dispatch(AppBarStatusActions.closeAppBarDialog()),
-    changeNewProblemName: (text) => dispatch(
-      NewProblemActions.changeNewProblemName(text)),
-    changeNewProblemUrl: (text) => dispatch(
-      NewProblemActions.changeNewProblemUrl(text)),
-    saveNewProblem: (coder_id, problem_name, problem_url) => dispatch(
-      NewProblemActions.saveNewProblem(coder_id, problem_name, problem_url)),
+    openDialog: () => dispatch(HeaderActions.openHeaderDialog()),
+    closeDialog: () => dispatch(HeaderActions.closeHeaderDialog()),
+    changeNewQuestionName: (text) => dispatch(
+      NewQuestionActions.changeNewQuestionName(text)),
+    changeNewQuestionUrl: (text) => dispatch(
+      NewQuestionActions.changeNewQuestionUrl(text)),
+    saveNewQuestion: (coder_id, question_name, question_url, default_set_id) => dispatch(
+      NewQuestionActions.saveNewQuestion(coder_id, question_name, question_url, default_set_id)),
   };
 };
 
@@ -182,4 +181,4 @@ const styles = {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(
-  withStyles(styles)(HeaderAppBar));
+  withStyles(styles)(Header));

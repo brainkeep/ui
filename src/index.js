@@ -2,11 +2,12 @@ import React from 'react';
 import {render} from 'react-dom';
 import {Provider} from 'react-redux';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import store from './app/store';
-import App from './app/App';
+import Store from './reducers/Store';
+import App from './containers/App/App';
+import * as serviceWorker from './utils/serviceWorker'
 
 render(
-  <Provider store={store}>
+  <Provider store={Store}>
     <React.Fragment>
       <CssBaseline/>
       <App/>
@@ -14,3 +15,4 @@ render(
   </Provider>,
   document.getElementById('root'),
 );
+serviceWorker.unregister();

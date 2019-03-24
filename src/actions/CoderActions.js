@@ -1,7 +1,7 @@
 import axios from 'axios';
-import * as ActionTypes from '../app/ActionTypes';
-import * as HostInfo from '../app/HostInfo';
-import * as ResourcePaths from '../app/ResourcePaths';
+import * as ActionTypes from '../utils/ActionTypes';
+import * as HostInfo from '../utils/HostInfo';
+import * as ResourcePaths from '../utils/ResourcePaths';
 
 export const changeCoderAccessToken = access_token => dispatch => {
   dispatch(
@@ -12,10 +12,7 @@ export const fetchCoder = access_token => dispatch => {
   dispatch({type: ActionTypes.FETCH_CODER_PENDING});
   axios({
     method: 'get',
-    url: HostInfo.BASE_URL + ResourcePaths.FETCH_CODER_PATH,
-    params: {
-      access_token: access_token,
-    },
+    url: HostInfo.BASE_URL + ResourcePaths.FETCH_CODER_PATH + '/' + access_token,
     responseType: 'json',
     timeout: 10000,
   })

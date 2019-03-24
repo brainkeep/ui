@@ -9,7 +9,7 @@ import ListItem from '@material-ui/core/ListItem';
 import IconButton from '@material-ui/core/IconButton';
 import LockOpen from '@material-ui/icons/LockOpen';
 // ActionCreators
-import * as CoderActions from './CoderActions';
+import * as CoderActions from '../../actions/CoderActions';
 
 /*
 
@@ -37,24 +37,20 @@ class Login extends React.Component {
 
   render() {
     return (
-
       <Dialog open={true}>
         <ListItem>
-
           <TextField
             id="standard-password-input"
             type="password"
             autoComplete="current-password"
             onChange={this.handleChangeAccessToken()}
           />
-
           <IconButton
             color="secondary"
             onClick={this.handleLoginButtonClicked()}
           >
             <LockOpen/>
           </IconButton>
-
         </ListItem>
       </Dialog>
     );

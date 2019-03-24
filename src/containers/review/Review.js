@@ -9,10 +9,10 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 import Button from '@material-ui/core/Button';
 // ActionCreators
-import * as ReviewActions from './ReviewActions';
+import * as ReviewActions from '../../actions/ReviewActions';
 // Containers
-import Login from '../login/Login';
-import HeaderAppBar from '../header/HeaderAppBar';
+import Login from '../Login/Login';
+import HeaderAppBar from '../Header/Header';
 
 /*
 
