@@ -13,7 +13,6 @@ class Login extends React.Component {
 
   handleKeyPress = () => event => {
     if (event.key === 'Enter') {
-      console.log(event.key);
       this.processFetchCoder();
     }
   };

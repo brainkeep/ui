@@ -1,7 +1,7 @@
 import * as ActionTypes from '../utils/ActionTypes';
 
 const init = {
-  dialog_open: true,
+  dialog_open: false,
   question_name: '',
   question_url: '',
   saving: false,

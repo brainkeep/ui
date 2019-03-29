@@ -9,7 +9,7 @@ import DialogTitle from '@material-ui/core/DialogTitle'
 
 const AddDialog = ({ add_dialog, login, closeDialog, changeNewQuestionName, changeNewQuestionUrl, saveNewQuestion }) => {
 
-  const handleCloseDialog = () => {
+  const handleCloseDialog = () => event => {
     closeDialog()
   }
 
