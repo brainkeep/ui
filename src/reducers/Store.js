@@ -6,22 +6,14 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import logger from "redux-logger";
 import thunk from 'redux-thunk';
 // Reducers
-import CoderReducer from './CoderReducer';
-
-import HeaderReducer from './HeaderReducer';
-import ProblemsReducer from './ProblemsReducer';
-import NewQuestionReducer from './NewQuestionReducer';
-import InReviewProblemsReducer from './InReviewProblemsReducer';
-import ReviewQueueReducer from './ReviewQueueReducer';
-
+import InputReducer from './InputReducer'
+import LoginReducer from './LoginReducer';
+import AddDialogReducer from './AddDialogReducer'
 
 const reducers = combineReducers({
-  coder: CoderReducer,
-  in_review_problems: InReviewProblemsReducer,
-  review_queue: ReviewQueueReducer,
-  header_status: HeaderReducer,
-  new_question: NewQuestionReducer,
-  problems: ProblemsReducer
+  add_dialog: AddDialogReducer,
+  input: InputReducer,
+  login: LoginReducer,
 });
 
 const middlewares = composeWithDevTools(

@@ -8,34 +8,34 @@ const init = {
   error: {},
 };
 
-const coder = (coder = init, action) => {
+const login = (login = init, action) => {
   switch (action.type) {
     case ActionTypes.CHANGE_CODER_ACCESS_TOKEN:
       return {
-        ...coder,
+        ...login,
         access_token: action.payload,
       };
     case ActionTypes.FETCH_CODER_PENDING:
       return {
-        ...coder,
+        ...login,
         fetching: true,
       };
     case ActionTypes.FETCH_CODER_FULFILLED:
       return {
-        ...coder,
+        ...login,
         fetching: false,
         fetched: true,
         data: action.payload,
       };
     case ActionTypes.FETCH_CODER_REJECTED:
       return {
-        ...coder,
+        ...login,
         fetching: false,
         error: action.payload,
       };
     default:
-      return coder;
+      return login;
   }
 };
 
-export default coder;
+export default login;
