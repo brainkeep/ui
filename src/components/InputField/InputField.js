@@ -3,7 +3,15 @@ import TextField from "@material-ui/core/TextField";
 import "./InputFiled.css";
 import PropTypes from "prop-types";
 
-const InputField = props => {
+InputField.propTypes = {
+  input: PropTypes.object.isRequired,
+  changeInputText: PropTypes.func.isRequired,
+  executeCommandBegin: PropTypes.func.isRequired,
+  setCommandInvalid: PropTypes.func.isRequired,
+  setCommandValid: PropTypes.func.isRequired
+};
+
+export default function InputField(props) {
   const {
     input,
     changeInputText,
@@ -46,14 +54,4 @@ const InputField = props => {
       />
     </div>
   );
-};
-
-InputField.propTypes = {
-  input: PropTypes.object.isRequired,
-  changeInputText: PropTypes.func.isRequired,
-  executeCommandBegin: PropTypes.func.isRequired,
-  setCommandInvalid: PropTypes.func.isRequired,
-  setCommandValid: PropTypes.func.isRequired
-};
-
-export default InputField;
+}

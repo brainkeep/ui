@@ -4,48 +4,53 @@ import Dialog from "@material-ui/core/Dialog";
 import ListItem from "@material-ui/core/ListItem";
 import IconButton from "@material-ui/core/IconButton";
 import LockOpen from "@material-ui/icons/LockOpen";
+import PropTypes from "prop-types";
 
-class Login extends React.Component {
-  handleChangeAccessToken = () => event => {
-    this.props.changeCoderAccessToken(event.target.value);
-  };
+Login.propTypes = {
+  login: PropTypes.object.isRequired,
+  changeCoderAccessToken: PropTypes.func.isRequired,
+  fetchCoder: PropTypes.func.isRequired
+};
 
-  handleKeyPress = () => event => {
-    if (event.key === "Enter") {
-      this.processFetchCoder();
-    }
-  };
+export default function Login(props) {
+  const { login, changeCoderAccessToken, fetchCoder } = props;
 
-  handleButtonClicked = () => () => {
-    this.processFetchCoder();
-  };
-
-  processFetchCoder = () => {
-    const token = this.props.login.access_token;
+  const processFetchCoder = () => {
+    const token = login.access_token;
     if (token.length >= 4) {
-      this.props.fetchCoder(token);
+      fetchCoder(token);
     }
   };
 
-  render() {
-    return (
-      <Dialog open={true}>
-        <ListItem>
-          <TextField
-            id="standard-password-input"
-            type="password"
-            autoComplete="current-password"
-            autoFocus={true}
-            onChange={this.handleChangeAccessToken()}
-            onKeyPress={this.handleKeyPress()}
-          />
-          <IconButton color="inherit" onClick={this.handleButtonClicked()}>
-            <LockOpen />
-          </IconButton>
-        </ListItem>
-      </Dialog>
-    );
-  }
-}
+  const handleAccessTokenChange = () => event => {
+    changeCoderAccessToken(event.target.value);
+  };
 
-export default Login;
+  const handleKeyPress = () => event => {
+    if (event.key === "Enter") {
+      processFetchCoder();
+    }
+  };
+
+  const handleButtonClicked = () => () => {
+    processFetchCoder();
+  };
+
+  return (
+    <Dialog open={true}>
+      <ListItem>
+        <TextField
+          id="standard-password-input"
+          type="password"
+          autoComplete="current-password"
+          autoFocus={true}
+          onChange={handleAccessTokenChange()}
+          onKeyPress={handleKeyPress()}
+        />
+        <IconButton color="inherit" onClick={handleButtonClicked()}>
+          <LockOpen />
+        </IconButton>
+      </ListItem>
+    </Dialog>
+  );
+}

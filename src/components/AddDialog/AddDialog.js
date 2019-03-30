@@ -4,8 +4,6 @@ import TextField from "@material-ui/core/TextField";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
-// import DialogContentText from '@material-ui/core/DialogContentText'
-// import DialogTitle from '@material-ui/core/DialogTitle'
 import PropTypes from "prop-types";
 
 AddDialog.propTypes = {
@@ -55,12 +53,7 @@ export default function AddDialog(props) {
       onClose={handleDialogClose()}
       aria-labelledby="form-dialog-title"
     >
-      {/*<DialogTitle id="form-dialog-title">Good Work!</DialogTitle>*/}
       <DialogContent>
-        {/*<DialogContentText>*/}
-        {/*"A dream doesn't become reality through magic; it takes sweat,*/}
-        {/*determination and hard work." - Colin Powell*/}
-        {/*</DialogContentText>*/}
         <TextField
           autoFocus
           margin="normal"

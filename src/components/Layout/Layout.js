@@ -6,7 +6,12 @@ import InputField from "../../containers/InputField/InputField";
 import AddDialog from "../../containers/AddDialog/AddDialog";
 import PropTypes from "prop-types";
 
-const Layout = props => {
+Layout.propTypes = {
+  input: PropTypes.object.isRequired,
+  openDialog: PropTypes.func.isRequired
+};
+
+export default function Layout(props) {
   const { input, openDialog } = props;
 
   const display = () => {
@@ -28,11 +33,4 @@ const Layout = props => {
       </Grid>
     </div>
   );
-};
-
-Layout.propTypes = {
-  input: PropTypes.object.isRequired,
-  openDialog: PropTypes.func.isRequired
-};
-
-export default Layout;
+}

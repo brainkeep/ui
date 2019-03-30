@@ -2,20 +2,22 @@ import React from "react";
 import "./App.css";
 import Layout from "../../containers/Layout/Layout";
 import Login from "../../containers/Login/Login";
+import PropTypes from "prop-types";
 
-class App extends React.Component {
-  render() {
-    const coder = this.props.login;
-    if (!coder.fetched) {
-      return <Login />;
-    } else {
-      return (
-        <div className="App">
-          <Layout />
-        </div>
-      );
-    }
+App.propTypes = {
+  login: PropTypes.object.isRequired
+};
+
+export default function App(props) {
+  const { login } = props;
+
+  if (!login.fetched) {
+    return <Login />;
+  } else {
+    return (
+      <div className="App">
+        <Layout />
+      </div>
+    );
   }
 }
-
-export default App;
