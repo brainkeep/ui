@@ -1,19 +1,19 @@
 import { connect } from "react-redux";
-import * as InputActions from "../../actions/InputActions";
-import InputField from "../../components/inputField/InputField";
+import * as inputField from "../../actions/inputField";
+import InputField from "../../components/InputField/InputField";
 
 const mapStateToProps = state => {
   return {
-    input: state.input
+    inputField: state.inputField
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    changeInputText: text => dispatch(InputActions.changeInputText(text)),
-    executeCommandBegin: () => dispatch(InputActions.executeCommandBegin()),
-    setCommandInvalid: () => dispatch(InputActions.setCommandInvalid()),
-    setCommandValid: () => dispatch(InputActions.setCommandValid())
+    changeInputText: text => dispatch(inputField.changeInputText(text)),
+    executeCommandBegin: () => dispatch(inputField.executeCommandBegin()),
+    setCommandInvalid: () => dispatch(inputField.setCommandInvalid()),
+    setCommandValid: () => dispatch(inputField.setCommandValid())
   };
 };
 

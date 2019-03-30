@@ -1,16 +1,16 @@
 import { connect } from "react-redux";
-import Layout from "../../components/layout/Layout";
-import * as AddDialogActions from "../../actions/AddDialogActions";
+import Layout from "../../components/Layout/Layout";
+import * as addDialog from "../../actions/addDialog";
 
 const mapStateToProps = state => {
   return {
-    input: state.input
+    inputField: state.inputField
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    openDialog: () => dispatch(AddDialogActions.openDialog())
+    openDialog: () => dispatch(addDialog.openDialog())
   };
 };
 

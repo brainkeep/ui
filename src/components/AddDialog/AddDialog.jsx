@@ -7,8 +7,9 @@ import DialogContent from "@material-ui/core/DialogContent";
 import PropTypes from "prop-types";
 
 AddDialog.propTypes = {
-  add_dialog: PropTypes.object.isRequired,
+  addDialog: PropTypes.object.isRequired,
   login: PropTypes.object.isRequired,
+  executeCommandEnd: PropTypes.func.isRequired,
   closeDialog: PropTypes.func.isRequired,
   changeNewQuestionName: PropTypes.func.isRequired,
   changeNewQuestionUrl: PropTypes.func.isRequired,
@@ -17,16 +18,18 @@ AddDialog.propTypes = {
 
 export default function AddDialog(props) {
   const {
-    add_dialog,
+    addDialog,
     login,
+    executeCommandEnd,
     closeDialog,
     changeNewQuestionName,
     changeNewQuestionUrl,
     saveNewQuestion
   } = props;
 
-  const handleDialogClose = () => event => {
+  const handleDialogClose = () => () => {
     closeDialog();
+    executeCommandEnd();
   };
 
   const handleQuestionNameChange = () => event => {
@@ -40,8 +43,8 @@ export default function AddDialog(props) {
   const handleSaveButtonClicked = () => () => {
     const coder_id = login.data.coder_id;
     const question_set_id = login.data.default_question_set_id;
-    const question_name = add_dialog.question_name;
-    const question_url = add_dialog.question_url;
+    const question_name = addDialog.question_name;
+    const question_url = addDialog.question_url;
     if (question_name.length > 0 && question_url.length > 10) {
       saveNewQuestion(coder_id, question_name, question_url, question_set_id);
     }
@@ -49,7 +52,7 @@ export default function AddDialog(props) {
 
   return (
     <Dialog
-      open={add_dialog.dialog_open}
+      open={addDialog.dialog_open}
       onClose={handleDialogClose()}
       aria-labelledby="form-dialog-title"
     >

@@ -9,7 +9,6 @@ export const openDialog = () => dispatch => {
 
 export const closeDialog = () => dispatch => {
   dispatch({ type: ActionTypes.SET_ADD_DIALOG_CLOSE });
-  dispatch({ type: ActionTypes.COMMAND_EXECUTION_END });
 };
 
 export const changeNewQuestionName = question_name => dispatch => {

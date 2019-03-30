@@ -5,15 +5,16 @@ import { composeWithDevTools } from "redux-devtools-extension";
 // Middlewares
 import logger from "redux-logger";
 import thunk from "redux-thunk";
+
 // Reducers
-import InputReducer from "./InputReducer";
-import LoginReducer from "./LoginReducer";
-import AddDialogReducer from "./AddDialogReducer";
+import inputField from "./inputField";
+import login from "./login";
+import addDialog from "./addDialog";
 
 const reducers = combineReducers({
-  add_dialog: AddDialogReducer,
-  input: InputReducer,
-  login: LoginReducer
+  addDialog,
+  inputField,
+  login
 });
 
 const middlewares = composeWithDevTools(applyMiddleware(thunk, logger));

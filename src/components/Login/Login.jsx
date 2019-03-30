@@ -37,13 +37,13 @@ export default function Login(props) {
   };
 
   return (
-    <Dialog open={true}>
+    <Dialog open>
       <ListItem>
         <TextField
           id="standard-password-input"
           type="password"
           autoComplete="current-password"
-          autoFocus={true}
+          autoFocus
           onChange={handleAccessTokenChange()}
           onKeyPress={handleKeyPress()}
         />

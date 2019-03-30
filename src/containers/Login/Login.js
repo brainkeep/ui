@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import { withStyles } from "@material-ui/core/styles";
-import Login from "../../components/login/Login";
-import * as LoginActions from "../../actions/LoginActions";
+import Login from "../../components/Login/Login";
+import * as login from "../../actions/login";
 
 const mapStateToProps = state => {
   return {
@@ -12,8 +12,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     changeCoderAccessToken: text =>
-      dispatch(LoginActions.changeCoderAccessToken(text)),
-    fetchCoder: access_token => dispatch(LoginActions.fetchCoder(access_token))
+      dispatch(login.changeCoderAccessToken(text)),
+    fetchCoder: access_token => dispatch(login.fetchCoder(access_token))
   };
 };
 

@@ -6,36 +6,36 @@ const init = {
   executing: false
 };
 
-const input = (input = init, action) => {
+const inputField = (inputField = init, action) => {
   switch (action.type) {
     case ActionTypes.CHANGE_INPUT_TEXT:
       return {
-        ...input,
+        ...inputField,
         input_text: action.payload
       };
     case ActionTypes.COMMAND_EXECUTION_BEGIN:
       return {
-        ...input,
+        ...inputField,
         executing: true
       };
     case ActionTypes.COMMAND_EXECUTION_END:
       return {
-        ...input,
+        ...inputField,
         executing: false
       };
     case ActionTypes.SET_COMMAND_INVALID:
       return {
-        ...input,
+        ...inputField,
         command_valid: false
       };
     case ActionTypes.SET_COMMAND_VALID:
       return {
-        ...input,
+        ...inputField,
         command_valid: true
       };
     default:
-      return input;
+      return inputField;
   }
 };
 
-export default input;
+export default inputField;

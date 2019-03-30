@@ -7,16 +7,16 @@ import AddDialog from "../../containers/AddDialog/AddDialog";
 import PropTypes from "prop-types";
 
 Layout.propTypes = {
-  input: PropTypes.object.isRequired,
+  inputField: PropTypes.object.isRequired,
   openDialog: PropTypes.func.isRequired
 };
 
 export default function Layout(props) {
-  const { input, openDialog } = props;
+  const { inputField, openDialog } = props;
 
   const display = () => {
-    if (input.executing) {
-      if (input.input_text === "add") openDialog();
+    if (inputField.executing) {
+      if (inputField.input_text === "add") openDialog();
       return <AddDialog />;
     }
   };
