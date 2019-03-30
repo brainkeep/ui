@@ -1,10 +1,10 @@
-import * as ActionTypes from '../utils/ActionTypes';
+import * as ActionTypes from "../utils/ActionTypes";
 
 const init = {
   data: [],
   fetching: false,
   fetched: false,
-  error: {},
+  error: {}
 };
 
 const problems = (problems = init, action) => {
@@ -12,20 +12,20 @@ const problems = (problems = init, action) => {
     case ActionTypes.FETCH_PROBLEMS_PENDING:
       return {
         ...problems,
-        fetching: true,
+        fetching: true
       };
     case ActionTypes.FETCH_PROBLEMS_FULFILLED:
       return {
         ...problems,
         fetching: false,
         fetched: true,
-        data: action.payload,
+        data: action.payload
       };
     case ActionTypes.FETCH_PROBLEMS_REJECTED:
       return {
         ...problems,
         fetching: false,
-        error: action.payload,
+        error: action.payload
       };
     default:
       return problems;

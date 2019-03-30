@@ -1,30 +1,35 @@
-import React from 'react'
-import TextField from '@material-ui/core/TextField'
-import './InputFiled.css'
+import React from "react";
+import TextField from "@material-ui/core/TextField";
+import "./InputFiled.css";
+import PropTypes from "prop-types";
 
-const InputField = ({ input, changeInputText, executeCommandBegin, setCommandInvalid, setCommandValid }) => {
+const InputField = props => {
+  const {
+    input,
+    changeInputText,
+    executeCommandBegin,
+    setCommandInvalid,
+    setCommandValid
+  } = props;
 
-  const valid_commands = new Set(['add'])
+  const valid_commands = new Set(["add"]);
 
   const handleInputChange = () => event => {
     if (!input.command_valid) {
-      setCommandValid()
-      changeInputText(event.target.value)
-    }
-    else
-      changeInputText(event.target.value)
-  }
+      setCommandValid();
+      changeInputText(event.target.value);
+    } else changeInputText(event.target.value);
+  };
 
   const handleKeyPress = () => event => {
-    if (event.key === 'Enter') {
+    if (event.key === "Enter") {
       if (valid_commands.has(input.input_text)) {
-        executeCommandBegin()
-      }
-      else {
-        setCommandInvalid()
+        executeCommandBegin();
+      } else {
+        setCommandInvalid();
       }
     }
-  }
+  };
 
   return (
     <div className="InputField">
@@ -40,7 +45,15 @@ const InputField = ({ input, changeInputText, executeCommandBegin, setCommandInv
         onKeyPress={handleKeyPress()}
       />
     </div>
-  )
-}
+  );
+};
 
-export default InputField
+InputField.propTypes = {
+  input: PropTypes.object.isRequired,
+  changeInputText: PropTypes.func.isRequired,
+  executeCommandBegin: PropTypes.func.isRequired,
+  setCommandInvalid: PropTypes.func.isRequired,
+  setCommandValid: PropTypes.func.isRequired
+};
+
+export default InputField;

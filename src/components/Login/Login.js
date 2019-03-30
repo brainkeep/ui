@@ -1,18 +1,17 @@
-import React from 'react';
-import TextField from '@material-ui/core/TextField';
-import Dialog from '@material-ui/core/Dialog';
-import ListItem from '@material-ui/core/ListItem';
-import IconButton from '@material-ui/core/IconButton';
-import LockOpen from '@material-ui/icons/LockOpen';
+import React from "react";
+import TextField from "@material-ui/core/TextField";
+import Dialog from "@material-ui/core/Dialog";
+import ListItem from "@material-ui/core/ListItem";
+import IconButton from "@material-ui/core/IconButton";
+import LockOpen from "@material-ui/icons/LockOpen";
 
 class Login extends React.Component {
-
   handleChangeAccessToken = () => event => {
     this.props.changeCoderAccessToken(event.target.value);
   };
 
   handleKeyPress = () => event => {
-    if (event.key === 'Enter') {
+    if (event.key === "Enter") {
       this.processFetchCoder();
     }
   };
@@ -40,11 +39,8 @@ class Login extends React.Component {
             onChange={this.handleChangeAccessToken()}
             onKeyPress={this.handleKeyPress()}
           />
-          <IconButton
-            color="inherit"
-            onClick={this.handleButtonClicked()}
-          >
-            <LockOpen/>
+          <IconButton color="inherit" onClick={this.handleButtonClicked()}>
+            <LockOpen />
           </IconButton>
         </ListItem>
       </Dialog>
@@ -52,4 +48,4 @@ class Login extends React.Component {
   }
 }
 
-export default Login
+export default Login;

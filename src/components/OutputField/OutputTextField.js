@@ -1,9 +1,8 @@
-import React from 'react';
-import TextField from '@material-ui/core/TextField';
-import './OutputTextField.css';
+import React from "react";
+import TextField from "@material-ui/core/TextField";
+import "./OutputTextField.css";
 
 class OutputTextField extends React.Component {
-
   render() {
     return (
       <div className="OutputField">
