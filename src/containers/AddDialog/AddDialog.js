@@ -1,6 +1,6 @@
 import * as AddDialogActions from "../../actions/AddDialogActions";
 import { connect } from "react-redux";
-import AddDialog from "../../components/AddDialog/AddDialog";
+import AddDialog from "../../components/addDialog/AddDialog";
 
 const mapStateToProps = state => {
   return {

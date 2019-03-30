@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import Layout from "../../components/Layout/Layout";
+import Layout from "../../components/layout/Layout";
 import * as AddDialogActions from "../../actions/AddDialogActions";
 
 const mapStateToProps = state => {

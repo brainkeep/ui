@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { withStyles } from "@material-ui/core/styles";
-import Login from "../../components/Login/Login";
+import Login from "../../components/login/Login";
 import * as LoginActions from "../../actions/LoginActions";
 
 const mapStateToProps = state => {

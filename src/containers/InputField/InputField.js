@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import * as InputActions from "../../actions/InputActions";
-import InputField from "../../components/InputField/InputField";
+import InputField from "../../components/inputField/InputField";
 
 const mapStateToProps = state => {
   return {

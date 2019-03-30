@@ -18,4 +18,6 @@ const reducers = combineReducers({
 
 const middlewares = composeWithDevTools(applyMiddleware(thunk, logger));
 
-export default createStore(reducers, middlewares);
+const Store = createStore(reducers, middlewares);
+
+export default Store;
