@@ -1,41 +1,39 @@
 import * as ActionTypes from "../utils/ActionTypes";
 
 const init = {
-  data: {},
-  access_token: "",
+  coder: {},
+  password: "",
   fetching: false,
   fetched: false,
   error: {}
 };
 
-const login = (login = init, action) => {
+export default function login(state = init, action) {
   switch (action.type) {
     case ActionTypes.CHANGE_CODER_ACCESS_TOKEN:
       return {
-        ...login,
-        access_token: action.payload
+        ...state,
+        password: action.payload
       };
     case ActionTypes.FETCH_CODER_PENDING:
       return {
-        ...login,
+        ...state,
         fetching: true
       };
     case ActionTypes.FETCH_CODER_FULFILLED:
       return {
-        ...login,
+        ...state,
         fetching: false,
         fetched: true,
-        data: action.payload
+        coder: action.payload
       };
     case ActionTypes.FETCH_CODER_REJECTED:
       return {
-        ...login,
+        ...state,
         fetching: false,
         error: action.payload
       };
     default:
-      return login;
+      return state;
   }
-};
-
-export default login;
+}

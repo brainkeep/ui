@@ -1,59 +1,57 @@
 import * as ActionTypes from "../utils/ActionTypes";
 
 const init = {
-  dialog_open: false,
-  question_name: "",
-  question_url: "",
+  isOpen: false,
+  questionName: "",
+  questionURL: "",
   saving: false,
   saved: false,
   response: {},
   error: {}
 };
 
-const add_dialog = (add_dialog = init, action) => {
+export default function addDialog(state = init, action) {
   switch (action.type) {
     case ActionTypes.SET_ADD_DIALOG_OPEN:
       return {
-        ...add_dialog,
-        dialog_open: true
+        ...state,
+        isOpen: true
       };
     case ActionTypes.SET_ADD_DIALOG_CLOSE:
       return {
-        ...add_dialog,
-        dialog_open: false
+        ...state,
+        isOpen: false
       };
     case ActionTypes.CHANGE_NEW_QUESTION_NAME:
       return {
-        ...add_dialog,
-        question_name: action.payload
+        ...state,
+        questionName: action.payload
       };
     case ActionTypes.CHANGE_NEW_QUESTION_URL:
       return {
-        ...add_dialog,
-        question_url: action.payload
+        ...state,
+        questionURL: action.payload
       };
     case ActionTypes.SAVE_NEW_QUESTION_PENDING:
       return {
-        ...add_dialog,
+        ...state,
         saving: true
       };
     case ActionTypes.SAVE_NEW_QUESTION_FULFILLED:
       return {
-        ...add_dialog,
+        ...state,
         saving: false,
         saved: true,
         response: action.payload
       };
     case ActionTypes.SAVE_NEW_QUESTION_REJECTED:
       return {
-        ...add_dialog,
+        ...state,
         saving: false,
         saved: false,
         error: action.payload
       };
     default:
-      return add_dialog;
+      return state;
   }
 };
-
-export default add_dialog;

@@ -1,7 +1,7 @@
 import * as ActionTypes from "../utils/ActionTypes";
 
 const init = {
-  data: [],
+  coder: [],
   fetching: false,
   fetched: false,
   fetch_error: false,
@@ -30,7 +30,7 @@ const reviewQueue = (reviewQueue = init, action) => {
         ...reviewQueue,
         fetching: false,
         fetched: true,
-        data: action.payload
+        coder: action.payload
       };
     case ActionTypes.UPDATE_REVIEW_QUEUE_PENDING:
       return {
@@ -49,7 +49,7 @@ const reviewQueue = (reviewQueue = init, action) => {
         ...reviewQueue,
         updating: false,
         updated: true,
-        data: reviewQueue.data.filter(
+        coder: reviewQueue.data.filter(
           d => d.review_id !== action.payload.review_id
         )
       };

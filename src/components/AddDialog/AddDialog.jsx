@@ -41,10 +41,10 @@ export default function AddDialog(props) {
   };
 
   const handleSaveButtonClicked = () => () => {
-    const coder_id = login.data.coder_id;
-    const question_set_id = login.data.default_question_set_id;
-    const question_name = addDialog.question_name;
-    const question_url = addDialog.question_url;
+    const coder_id = login.coder.coder_id;
+    const question_set_id = login.coder.default_question_set_id;
+    const question_name = addDialog.questionName;
+    const question_url = addDialog.questionURL;
     if (question_name.length > 0 && question_url.length > 10) {
       saveNewQuestion(coder_id, question_name, question_url, question_set_id);
     }
@@ -52,7 +52,7 @@ export default function AddDialog(props) {
 
   return (
     <Dialog
-      open={addDialog.dialog_open}
+      open={addDialog.isOpen}
       onClose={handleDialogClose()}
       aria-labelledby="form-dialog-title"
     >

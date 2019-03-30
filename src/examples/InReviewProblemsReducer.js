@@ -1,7 +1,7 @@
 import * as ActionTypes from "../utils/ActionTypes";
 
 const init = {
-  data: [],
+  coder: [],
   fetching: false,
   fetched: false,
   fetch_error: false,
@@ -30,7 +30,7 @@ const inReviewProblems = (inReviewProblems = init, action) => {
         ...inReviewProblems,
         fetching: false,
         fetched: true,
-        data: action.payload
+        coder: action.payload
       };
     case ActionTypes.UPDATE_IN_REVIEW_PROBLEMS_PENDING:
       return {
@@ -49,7 +49,7 @@ const inReviewProblems = (inReviewProblems = init, action) => {
         ...inReviewProblems,
         updating: false,
         updated: true,
-        data: inReviewProblems.data.filter(
+        coder: inReviewProblems.data.filter(
           d => d.problem_id !== action.payload.problem_id
         )
       };

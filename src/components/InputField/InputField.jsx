@@ -20,10 +20,10 @@ export default function InputField(props) {
     setCommandValid
   } = props;
 
-  const valid_commands = new Set(["add"]);
+  const commands = new Set(["add"]);
 
   const handleInputChange = () => event => {
-    if (!inputField.command_valid) {
+    if (!inputField.isValidCommand) {
       setCommandValid();
       changeInputText(event.target.value);
     } else changeInputText(event.target.value);
@@ -31,7 +31,7 @@ export default function InputField(props) {
 
   const handleKeyPress = () => event => {
     if (event.key === "Enter") {
-      if (valid_commands.has(inputField.input_text)) {
+      if (commands.has(inputField.text)) {
         executeCommandBegin();
       } else {
         setCommandInvalid();
@@ -47,8 +47,8 @@ export default function InputField(props) {
         margin="normal"
         fullWidth
         autoFocus
-        disabled={inputField.executing}
-        error={!inputField.command_valid}
+        disabled={inputField.isExecuting}
+        error={!inputField.isValidCommand}
         onChange={handleInputChange()}
         onKeyPress={handleKeyPress()}
       />

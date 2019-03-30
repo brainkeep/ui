@@ -16,9 +16,8 @@ export default function Login(props) {
   const { login, changeCoderAccessToken, fetchCoder } = props;
 
   const processFetchCoder = () => {
-    const token = login.access_token;
-    if (token.length >= 4) {
-      fetchCoder(token);
+    if (login.password.length >= 4) {
+      fetchCoder(login.password);
     }
   };
 

@@ -1,7 +1,7 @@
 import * as ActionTypes from "../utils/ActionTypes";
 
 const init = {
-  data: [],
+  coder: [],
   fetching: false,
   fetched: false,
   error: {}
@@ -19,7 +19,7 @@ const problems = (problems = init, action) => {
         ...problems,
         fetching: false,
         fetched: true,
-        data: action.payload
+        coder: action.payload
       };
     case ActionTypes.FETCH_PROBLEMS_REJECTED:
       return {

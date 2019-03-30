@@ -15,8 +15,8 @@ export default function Layout(props) {
   const { inputField, openDialog } = props;
 
   const display = () => {
-    if (inputField.executing) {
-      if (inputField.input_text === "add") openDialog();
+    if (inputField.isExecuting) {
+      if (inputField.text === "add") openDialog();
       return <AddDialog />;
     }
   };

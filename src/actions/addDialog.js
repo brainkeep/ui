@@ -37,10 +37,10 @@ export const saveNewQuestion = (
     url: HostInfo.BASE_URL + ResourcePaths.SAVE_NEW_QUESTION_PATH,
     responseType: "json",
     timeout: 10000,
-    data: {
+    coder: {
       coder_id: coder_id,
-      question_name: question_name,
-      question_url: question_url,
+      questionName: question_name,
+      questionURL: question_url,
       question_set_id: default_set_id,
       times_solved: 1,
       in_auto_review: false,

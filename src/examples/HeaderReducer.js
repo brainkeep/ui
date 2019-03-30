@@ -1,7 +1,7 @@
 import * as ActionTypes from "../utils/ActionTypes";
 
 const init = {
-  dialog_open: false
+  isOpen: false
 };
 
 const headerStatus = (headerStatus = init, action) => {
@@ -9,12 +9,12 @@ const headerStatus = (headerStatus = init, action) => {
     case ActionTypes.OPEN_HEADER_DIALOG:
       return {
         ...headerStatus,
-        dialog_open: true
+        isOpen: true
       };
     case ActionTypes.CLOSE_HEADER_DIALOG:
       return {
         ...headerStatus,
-        dialog_open: false
+        isOpen: false
       };
     default:
       return headerStatus;

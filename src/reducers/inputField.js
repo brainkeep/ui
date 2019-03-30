@@ -1,41 +1,41 @@
 import * as ActionTypes from "../utils/ActionTypes";
 
 const init = {
-  input_text: "",
-  command_valid: true,
-  executing: false
+  text: "",
+  isValidCommand: true,
+  isExecuting: false
 };
 
-const inputField = (inputField = init, action) => {
+export default function inputField(state = init, action) {
   switch (action.type) {
     case ActionTypes.CHANGE_INPUT_TEXT:
       return {
-        ...inputField,
-        input_text: action.payload
+        ...state,
+        text: action.payload
       };
     case ActionTypes.COMMAND_EXECUTION_BEGIN:
       return {
-        ...inputField,
-        executing: true
+        ...state,
+        isExecuting: true
       };
     case ActionTypes.COMMAND_EXECUTION_END:
       return {
-        ...inputField,
-        executing: false
+        ...state,
+        isExecuting: false
       };
     case ActionTypes.SET_COMMAND_INVALID:
       return {
-        ...inputField,
-        command_valid: false
+        ...state,
+        isValidCommand: false
       };
     case ActionTypes.SET_COMMAND_VALID:
       return {
-        ...inputField,
-        command_valid: true
+        ...state,
+        isValidCommand: true
       };
     default:
-      return inputField;
+      return state;
   }
 };
 
-export default inputField;
+
