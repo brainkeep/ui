@@ -5,12 +5,6 @@ FROM node:9.6.1 as builder
 RUN mkdir /usr/src/app
 WORKDIR /usr/src/app
 
-# environment setting --build-arg <varname>=<value>
-ARG REACT_APP_API_HOST
-ENV REACT_APP_API_HOST=$REACT_APP_API_HOST
-ARG REACT_APP_API_PORT
-ENV REACT_APP_API_PORT=$REACT_APP_API_PORT
-
 # install and cache dependencies
 ENV PATH /usr/src/app/node_modules/.bin:$PATH
 COPY package.json /usr/src/app/package.json
