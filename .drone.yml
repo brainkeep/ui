@@ -6,7 +6,11 @@ pipeline:
     repo: kurumicode/ui
     tags: latest
     secrets: [ docker_username, docker_password ]
+    build_args:
+      - REACT_APP_API_HOST=${api_host}
+      - REACT_APP_API_PORT=${api_port}
     when:
+      event: push, tag
       branch: master
   
   scp_docker_compose:
@@ -17,6 +21,10 @@ pipeline:
     target: /home/junpu/kurumi/ui
     source:
       - docker-compose.yml
+    when:
+      event: push, tag
+      branch: master
+
 
   ssh_docker_down:
     image: appleboy/drone-ssh
@@ -25,6 +33,9 @@ pipeline:
     secrets: [ ssh_username, ssh_password ]
     script:
       - /usr/bin/docker-compose -f /home/junpu/kurumi/ui/docker-compose.yml down
+    when:
+      event: push, tag
+      branch: master
 
   ssh_docker_pull:
     image: appleboy/drone-ssh
@@ -33,6 +44,9 @@ pipeline:
     secrets: [ ssh_username, ssh_password ]
     script:
       - /usr/bin/docker-compose -f /home/junpu/kurumi/ui/docker-compose.yml pull
+    when:
+      event: push, tag
+      branch: master
 
   ssh_docker_up:
     image: appleboy/drone-ssh
@@ -41,7 +55,10 @@ pipeline:
     secrets: [ ssh_username, ssh_password ]
     script:
       - /usr/bin/docker-compose -f /home/junpu/kurumi/ui/docker-compose.yml up -d
-  
+    when:
+      event: push, tag
+      branch: master
+
   ssh_cleanup:
     image: appleboy/drone-ssh
     host: 68.47.38.242
@@ -49,5 +66,6 @@ pipeline:
     secrets: [ ssh_username, ssh_password ]
     script:
       - rm /home/junpu/kurumi/ui/docker-compose.yml
-
-      
+    when:
+      event: push, tag
+      branch: master
