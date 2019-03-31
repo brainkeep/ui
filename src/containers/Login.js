@@ -1,7 +1,8 @@
 import { connect } from "react-redux";
 import { withStyles } from "@material-ui/core/styles";
-import Login from "../../components/Login/Login";
-import * as login from "../../actions/login";
+
+import * as login from "./actions/login";
+import LoginFC from "./LoginFC";
 
 const mapStateToProps = state => {
   return {
@@ -26,4 +27,4 @@ const styles = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(withStyles(styles)(Login));
+)(withStyles(styles)(LoginFC));

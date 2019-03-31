@@ -1,4 +1,4 @@
-import * as ActionTypes from "../utils/ActionTypes";
+import Configs from "../utils/Configs";
 
 const init = {
   isOpen: false,
@@ -11,40 +11,41 @@ const init = {
 };
 
 export default function addDialog(state = init, action) {
+  const { actions } = Configs;
   switch (action.type) {
-    case ActionTypes.SET_ADD_DIALOG_OPEN:
+    case actions.SET_ADD_DIALOG_OPEN:
       return {
         ...state,
         isOpen: true
       };
-    case ActionTypes.SET_ADD_DIALOG_CLOSE:
+    case actions.SET_ADD_DIALOG_CLOSE:
       return {
         ...state,
         isOpen: false
       };
-    case ActionTypes.CHANGE_NEW_QUESTION_NAME:
+    case actions.CHANGE_NEW_QUESTION_NAME:
       return {
         ...state,
         questionName: action.payload
       };
-    case ActionTypes.CHANGE_NEW_QUESTION_URL:
+    case actions.CHANGE_NEW_QUESTION_URL:
       return {
         ...state,
         questionURL: action.payload
       };
-    case ActionTypes.SAVE_NEW_QUESTION_PENDING:
+    case actions.SAVE_NEW_QUESTION_PENDING:
       return {
         ...state,
         saving: true
       };
-    case ActionTypes.SAVE_NEW_QUESTION_FULFILLED:
+    case actions.SAVE_NEW_QUESTION_FULFILLED:
       return {
         ...state,
         saving: false,
         saved: true,
         response: action.payload
       };
-    case ActionTypes.SAVE_NEW_QUESTION_REJECTED:
+    case actions.SAVE_NEW_QUESTION_REJECTED:
       return {
         ...state,
         saving: false,
@@ -54,4 +55,4 @@ export default function addDialog(state = init, action) {
     default:
       return state;
   }
-};
+}

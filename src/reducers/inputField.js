@@ -1,4 +1,4 @@
-import * as ActionTypes from "../utils/ActionTypes";
+import Configs from "../utils/Configs";
 
 const init = {
   text: "",
@@ -7,28 +7,29 @@ const init = {
 };
 
 export default function inputField(state = init, action) {
+  const { actions } = Configs;
   switch (action.type) {
-    case ActionTypes.CHANGE_INPUT_TEXT:
+    case actions.CHANGE_INPUT_TEXT:
       return {
         ...state,
         text: action.payload
       };
-    case ActionTypes.COMMAND_EXECUTION_BEGIN:
+    case actions.COMMAND_EXECUTION_BEGIN:
       return {
         ...state,
         isExecuting: true
       };
-    case ActionTypes.COMMAND_EXECUTION_END:
+    case actions.COMMAND_EXECUTION_END:
       return {
         ...state,
         isExecuting: false
       };
-    case ActionTypes.SET_COMMAND_INVALID:
+    case actions.SET_COMMAND_INVALID:
       return {
         ...state,
         isValidCommand: false
       };
-    case ActionTypes.SET_COMMAND_VALID:
+    case actions.SET_COMMAND_VALID:
       return {
         ...state,
         isValidCommand: true
@@ -36,6 +37,4 @@ export default function inputField(state = init, action) {
     default:
       return state;
   }
-};
-
-
+}

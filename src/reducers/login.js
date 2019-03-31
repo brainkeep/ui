@@ -1,4 +1,4 @@
-import * as ActionTypes from "../utils/ActionTypes";
+import Configs from "../utils/Configs";
 
 const init = {
   coder: {},
@@ -9,25 +9,26 @@ const init = {
 };
 
 export default function login(state = init, action) {
+  const { actions } = Configs;
   switch (action.type) {
-    case ActionTypes.CHANGE_CODER_ACCESS_TOKEN:
+    case actions.CHANGE_CODER_ACCESS_TOKEN:
       return {
         ...state,
         password: action.payload
       };
-    case ActionTypes.FETCH_CODER_PENDING:
+    case actions.FETCH_CODER_PENDING:
       return {
         ...state,
         fetching: true
       };
-    case ActionTypes.FETCH_CODER_FULFILLED:
+    case actions.FETCH_CODER_FULFILLED:
       return {
         ...state,
         fetching: false,
         fetched: true,
         coder: action.payload
       };
-    case ActionTypes.FETCH_CODER_REJECTED:
+    case actions.FETCH_CODER_REJECTED:
       return {
         ...state,
         fetching: false,

@@ -6,24 +6,24 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import PropTypes from "prop-types";
 
-AddDialog.propTypes = {
+AddDialogFC.propTypes = {
   addDialog: PropTypes.object.isRequired,
   login: PropTypes.object.isRequired,
   executeCommandEnd: PropTypes.func.isRequired,
   closeDialog: PropTypes.func.isRequired,
   changeNewQuestionName: PropTypes.func.isRequired,
-  changeNewQuestionUrl: PropTypes.func.isRequired,
+  changeNewQuestionURL: PropTypes.func.isRequired,
   saveNewQuestion: PropTypes.func.isRequired
 };
 
-export default function AddDialog(props) {
+export default function AddDialogFC(props) {
   const {
     addDialog,
     login,
     executeCommandEnd,
     closeDialog,
     changeNewQuestionName,
-    changeNewQuestionUrl,
+    changeNewQuestionURL,
     saveNewQuestion
   } = props;
 
@@ -36,8 +36,8 @@ export default function AddDialog(props) {
     changeNewQuestionName(event.target.value);
   };
 
-  const handleQuestionUrlChange = () => event => {
-    changeNewQuestionUrl(event.target.value);
+  const handleQuestionURLChange = () => event => {
+    changeNewQuestionURL(event.target.value);
   };
 
   const handleSaveButtonClicked = () => () => {
@@ -66,9 +66,9 @@ export default function AddDialog(props) {
         />
         <TextField
           margin="normal"
-          label="Question Url"
+          label="Question URL"
           fullWidth
-          onChange={handleQuestionUrlChange()}
+          onChange={handleQuestionURLChange()}
         />
       </DialogContent>
       <DialogActions>

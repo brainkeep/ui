@@ -1,9 +1,9 @@
 import React from "react";
 import TextField from "@material-ui/core/TextField";
-import "./InputFiled.css";
 import PropTypes from "prop-types";
+import "./styles/InputFiled.css";
 
-InputField.propTypes = {
+InputFieldFC.propTypes = {
   inputField: PropTypes.object.isRequired,
   changeInputText: PropTypes.func.isRequired,
   executeCommandBegin: PropTypes.func.isRequired,
@@ -11,7 +11,7 @@ InputField.propTypes = {
   setCommandValid: PropTypes.func.isRequired
 };
 
-export default function InputField(props) {
+export default function InputFieldFC(props) {
   const {
     inputField,
     changeInputText,

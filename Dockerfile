@@ -4,7 +4,7 @@ FROM node:9.6.1 as builder
 # set working directory
 RUN mkdir /usr/src/app
 WORKDIR /usr/src/app
-# install and cache App dependencies
+# install and cache AppFC dependencies
 ENV PATH /usr/src/app/node_modules/.bin:$PATH
 COPY package.json /usr/src/app/package.json
 RUN npm install

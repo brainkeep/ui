@@ -1,14 +1,14 @@
 import React from "react";
-import "./App.css";
-import Layout from "../../containers/Layout/Layout";
-import Login from "../../containers/Login/Login";
+import "./styles/App.css";
+import Layout from "../containers/Layout";
+import Login from "../containers/Login";
 import PropTypes from "prop-types";
 
-App.propTypes = {
+AppFC.propTypes = {
   login: PropTypes.object.isRequired
 };
 
-export default function App(props) {
+export default function AppFC(props) {
   const { login } = props;
 
   if (!login.fetched) {

@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
-import * as inputField from "../../actions/inputField";
-import InputField from "../../components/InputField/InputField";
+
+import * as inputField from "./actions/inputField";
+import InputFieldFC from "./InputFieldFC";
 
 const mapStateToProps = state => {
   return {
@@ -20,4 +21,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(InputField);
+)(InputFieldFC);

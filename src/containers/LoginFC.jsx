@@ -6,13 +6,13 @@ import IconButton from "@material-ui/core/IconButton";
 import LockOpen from "@material-ui/icons/LockOpen";
 import PropTypes from "prop-types";
 
-Login.propTypes = {
+LoginFC.propTypes = {
   login: PropTypes.object.isRequired,
   changeCoderAccessToken: PropTypes.func.isRequired,
   fetchCoder: PropTypes.func.isRequired
 };
 
-export default function Login(props) {
+export default function LoginFC(props) {
   const { login, changeCoderAccessToken, fetchCoder } = props;
 
   const processFetchCoder = () => {

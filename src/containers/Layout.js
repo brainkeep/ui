@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
-import Layout from "../../components/Layout/Layout";
-import * as addDialog from "../../actions/addDialog";
+
+import * as addDialog from "./actions/addDialog";
+import LayoutFC from "./LayoutFC";
 
 const mapStateToProps = state => {
   return {
@@ -17,4 +18,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Layout);
+)(LayoutFC);

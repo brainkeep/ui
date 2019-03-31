@@ -1,17 +1,16 @@
 import React from "react";
-
-import "./Layout.css";
 import Grid from "@material-ui/core/Grid";
-import InputField from "../../containers/InputField/InputField";
-import AddDialog from "../../containers/AddDialog/AddDialog";
 import PropTypes from "prop-types";
+import InputField from "./InputField";
+import AddDialog from "./AddDialog";
+import "./styles/Layout.css";
 
-Layout.propTypes = {
+LayoutFC.propTypes = {
   inputField: PropTypes.object.isRequired,
   openDialog: PropTypes.func.isRequired
 };
 
-export default function Layout(props) {
+export default function LayoutFC(props) {
   const { inputField, openDialog } = props;
 
   const display = () => {

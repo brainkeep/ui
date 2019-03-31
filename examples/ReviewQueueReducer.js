@@ -1,4 +1,4 @@
-import * as ActionTypes from "../utils/ActionTypes";
+import * as ActionTypes from "../src/utils/ActionTypes";
 
 const init = {
   coder: [],
