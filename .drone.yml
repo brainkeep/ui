@@ -10,7 +10,6 @@ pipeline:
       - REACT_APP_API_HOST=${api_host}
       - REACT_APP_API_PORT=${api_port}
     when:
-      event: push, tag
       branch: master
   
   scp_docker_compose:
@@ -22,7 +21,6 @@ pipeline:
     source:
       - docker-compose.yml
     when:
-      event: push, tag
       branch: master
 
 
@@ -34,7 +32,6 @@ pipeline:
     script:
       - /usr/bin/docker-compose -f /home/junpu/kurumi/ui/docker-compose.yml down
     when:
-      event: push, tag
       branch: master
 
   ssh_docker_pull:
@@ -45,7 +42,6 @@ pipeline:
     script:
       - /usr/bin/docker-compose -f /home/junpu/kurumi/ui/docker-compose.yml pull
     when:
-      event: push, tag
       branch: master
 
   ssh_docker_up:
@@ -56,7 +52,6 @@ pipeline:
     script:
       - /usr/bin/docker-compose -f /home/junpu/kurumi/ui/docker-compose.yml up -d
     when:
-      event: push, tag
       branch: master
 
   ssh_cleanup:
@@ -67,5 +62,4 @@ pipeline:
     script:
       - rm /home/junpu/kurumi/ui/docker-compose.yml
     when:
-      event: push, tag
       branch: master
