@@ -1,5 +1,11 @@
+const environment = {
+  mode: process.env.NODE_ENV,
+  host: process.env.REACT_APP_API_HOST,
+  port: process.env.REACT_APP_API_PORT
+}
+
 const API = {
-  baseURL: "http://" + process.env.host + ":" + process.env.port + "/",
+  baseURL: "http://" + environment.host + ":" + environment.port + "/",
   path: {
     fetchCoder: "kurumi/coder",
     saveNewQuestion: "kurumi/question"
