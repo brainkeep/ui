@@ -13,6 +13,8 @@ RUN npm install react-scripts@1.1.1 -g
 
 # copy all the stuff and build the production `build` folder
 COPY . /usr/src/app
+ENV REACT_APP_API_HOST=68.47.38.242
+ENV REACT_APP_API_PORT=8082
 RUN npm run build
 
 # stage: 2 — the production environment
