@@ -6,6 +6,9 @@ pipeline:
     repo: kurumicode/ui
     tags: latest
     secrets: [ docker_username, docker_password ]
+    build_args:
+      - REACT_APP_API_HOST=${api_host}
+      - REACT_APP_API_PORT=${api_port}
     when:
       branch: master
   
@@ -41,7 +44,7 @@ pipeline:
     secrets: [ ssh_username, ssh_password ]
     script:
       - /usr/bin/docker-compose -f /home/junpu/kurumi/ui/docker-compose.yml up -d
-  
+
   ssh_cleanup:
     image: appleboy/drone-ssh
     host: 68.47.38.242
@@ -49,5 +52,4 @@ pipeline:
     secrets: [ ssh_username, ssh_password ]
     script:
       - rm /home/junpu/kurumi/ui/docker-compose.yml
-
       
