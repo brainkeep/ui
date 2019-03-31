@@ -5,10 +5,10 @@ pipeline:
     image: plugins/docker
     repo: kurumicode/ui
     tags: latest
-    secrets: [ docker_username, docker_password, react_app_api_host, react_app_api_port ]
+    secrets: [ docker_username, docker_password ]
     build_args:
-      - REACT_APP_API_HOST=${react_app_api_host}
-      - REACT_APP_API_PORT=${react_app_api_port}
+      - REACT_APP_API_HOST=10.0.0.252
+      - REACT_APP_API_PORT=8082
     when:
       event: [push, tag, deployment]
       branch: master
