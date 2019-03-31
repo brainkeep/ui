@@ -37,7 +37,7 @@ export const saveNewQuestion = (
     url: endpoints.saveNewQuestionURL(),
     responseType: "json",
     timeout: 10000,
-    coder: {
+    data: {
       coder_id: coder_id,
       questionName: question_name,
       questionURL: question_url,
