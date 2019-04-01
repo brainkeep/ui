@@ -39,8 +39,8 @@ export const saveNewQuestion = (
     timeout: 10000,
     data: {
       coder_id: coder_id,
-      questionName: question_name,
-      questionURL: question_url,
+      question_name: question_name,
+      question_url: question_url,
       question_set_id: default_set_id,
       times_solved: 1,
       in_auto_review: false,

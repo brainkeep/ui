@@ -1,9 +1,8 @@
 import { connect } from "react-redux";
 
 import * as addDialog from "./actions/addDialog";
-import * as inputField from "./actions/inputField"
+import * as inputField from "./actions/inputField";
 import AddDialogFC from "./AddDialogFC";
-
 
 const mapStateToProps = state => {
   return {

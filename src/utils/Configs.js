@@ -2,9 +2,7 @@ const environment = {
   mode: process.env.NODE_ENV,
   host: process.env.REACT_APP_API_HOST,
   port: process.env.REACT_APP_API_PORT
-}
-
-console.log(process.env)
+};
 
 const API = {
   baseURL: "http://" + environment.host + ":" + environment.port + "/",
