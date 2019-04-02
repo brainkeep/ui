@@ -27,7 +27,7 @@ export default function AddDialogFC(props) {
     saveNewQuestion
   } = props;
 
-  const handleDialogClose = () => () => {
+  const exit = () => {
     closeDialog();
     executeCommandEnd();
   };
@@ -40,6 +40,10 @@ export default function AddDialogFC(props) {
     changeNewQuestionURL(event.target.value);
   };
 
+  const handleDialogClose = () => () => {
+    exit();
+  };
+
   const handleSaveButtonClicked = () => () => {
     const coder_id = login.coder.coder_id;
     const question_set_id = login.coder.default_question_set_id;
@@ -47,6 +51,7 @@ export default function AddDialogFC(props) {
     const question_url = addDialog.questionURL;
     if (question_name.length > 0 && question_url.length > 10) {
       saveNewQuestion(coder_id, question_name, question_url, question_set_id);
+      exit();
     }
   };
 

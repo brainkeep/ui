@@ -55,6 +55,5 @@ export const saveNewQuestion = (
     )
     .catch(err =>
       dispatch({ type: actions.SAVE_NEW_QUESTION_REJECTED, payload: err })
-    )
-    .then(() => dispatch({ type: actions.SET_ADD_DIALOG_CLOSE }));
+    );
 };
