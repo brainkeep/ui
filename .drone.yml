@@ -1,18 +1,15 @@
-
 pipeline:
-                                    
+
   docker_build_push:
     image: plugins/docker
     repo: kurumicode/ui
     tags: latest
-    secrets: [ docker_username, docker_password ]
-    build_args:
-      - REACT_APP_API_HOST=10.0.0.252
-      - REACT_APP_API_PORT=8082
+    build_args_from_env: [ REACT_APP_API_HOST, REACT_APP_API_PORT ]
+    secrets: [ docker_username, docker_password, react_app_api_port, react_app_api_host ]
     when:
       event: [push, tag, deployment]
       branch: master
-  
+
   ssh_docker_down:
     image: appleboy/drone-ssh
     host: 68.47.38.242

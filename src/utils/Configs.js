@@ -43,7 +43,8 @@ const actions = {
 
 const Configs = {
   endpoints,
-  actions
+  actions,
+  environment
 };
 
 export default Configs;

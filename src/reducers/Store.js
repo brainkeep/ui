@@ -8,14 +8,23 @@ import inputField from "./inputField";
 import login from "./login";
 import addDialog from "./addDialog";
 
+import Config from "../utils/Configs";
+
+const { environment } = Config;
+
 const reducers = combineReducers({
   addDialog,
   inputField,
   login
 });
 
-const middlewares = composeWithDevTools(applyMiddleware(thunk, logger));
+let middleware;
+if (environment.mode === "development") {
+  middleware = composeWithDevTools(applyMiddleware(thunk, logger));
+} else {
+  middleware = applyMiddleware(thunk);
+}
 
-const Store = createStore(reducers, middlewares);
+const Store = createStore(reducers, middleware);
 
 export default Store;
