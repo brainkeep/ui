@@ -1,6 +1,6 @@
 pipeline:
 
-  docker_build_push:
+  docker:
     image: plugins/docker
     repo: kurumicode/ui
     tags: latest
@@ -10,35 +10,58 @@ pipeline:
       event: [push, tag, deployment]
       branch: master
 
-  ssh_docker_down:
-    image: appleboy/drone-ssh
-    host: 68.47.38.242
+  scp:
+    image: appleboy/drone-scp
+    host: kurumi.duckdns.org
     port: 22
     secrets: [ ssh_username, ssh_password ]
-    script:
-      - /usr/bin/docker-compose -f /home/junpu/kurumi/ui/docker-compose.yml down
+    target: /home/junpu/
+    source:
+      - docker-compose.yml
     when:
       event: [push, tag, deployment]
       branch: master
 
-  ssh_docker_pull:
+  down:
     image: appleboy/drone-ssh
-    host: 68.47.38.242
+    host: kurumi.duckdns.org
     port: 22
     secrets: [ ssh_username, ssh_password ]
     script:
-      - /usr/bin/docker-compose -f /home/junpu/kurumi/ui/docker-compose.yml pull
+      - /usr/bin/docker-compose -f /home/junpu/docker-compose.yml down
     when:
       event: [push, tag, deployment]
       branch: master
 
-  ssh_docker_up:
+  pull:
     image: appleboy/drone-ssh
-    host: 68.47.38.242
+    host: kurumi.duckdns.org
     port: 22
     secrets: [ ssh_username, ssh_password ]
     script:
-      - /usr/bin/docker-compose -f /home/junpu/kurumi/ui/docker-compose.yml up -d
+      - /usr/bin/docker-compose -f /home/junpu/docker-compose.yml pull
+    when:
+      event: [push, tag, deployment]
+      branch: master
+
+  up:
+    image: appleboy/drone-ssh
+    host: kurumi.duckdns.org
+    port: 22
+    secrets: [ ssh_username, ssh_password ]
+    script:
+      - /usr/bin/docker-compose -f /home/junpu/docker-compose.yml up -d
+    when:
+      event: [push, tag, deployment]
+      branch: master
+
+  cleanup:
+    image: appleboy/drone-ssh
+    host: kurumi.duckdns.org
+    port: 22
+    secrets: [ ssh_username, ssh_password ]
+    script:
+      - rm -f /home/junpu/docker-compose.yml
     when:
       event: [push, tag, deployment]
       branch: master

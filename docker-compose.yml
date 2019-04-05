@@ -1,0 +1,15 @@
+version: '3.0'
+
+services:
+  ui:
+    container_name: kurumi_ui
+    restart: always
+    image: kurumicode/ui
+    ports:
+      - "80:80"
+      #<access_port>:<container_port>
+
+networks:
+  default:
+    external:
+      name: kurumi_net
