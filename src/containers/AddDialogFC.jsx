@@ -51,7 +51,6 @@ export default function AddDialogFC(props) {
     const question_url = addDialog.questionURL;
     if (question_name.length > 0 && question_url.length > 10) {
       saveNewQuestion(coder_id, question_name, question_url, question_set_id);
-      exit();
     }
   };
 
@@ -67,12 +66,16 @@ export default function AddDialogFC(props) {
           margin="normal"
           label="Question Name"
           fullWidth
+          disabled={addDialog.saving}
+          error={addDialog.error !== {}}
           onChange={handleQuestionNameChange()}
         />
         <TextField
           margin="normal"
           label="Question URL"
           fullWidth
+          disabled={addDialog.saving}
+          error={addDialog.error !== {}}
           onChange={handleQuestionURLChange()}
         />
       </DialogContent>
